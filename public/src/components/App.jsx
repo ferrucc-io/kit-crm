@@ -27,7 +27,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="site-wrapper">
+      <div className="site-wrapper sans-serif">
         <div className="site-wrapper-inner">
           { !isUserSignedIn() ?
             <Signin handleSignIn={ this.handleSignIn } />

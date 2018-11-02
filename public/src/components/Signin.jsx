@@ -11,10 +11,10 @@ export default class Signin extends Component {
 
     return (
       <div className="panel-landing" id="section-1">
-        <h1 className="landing-heading">Hello, Blockstack!</h1>
-        <p className="lead">
+        <h1 className="landing-heading">KIT CRM</h1>
+        <p>
           <button
-            className="btn btn-primary btn-lg"
+            className="f6 link dim ph3 pv2 mb2 dib white bg-black"
             id="signin-button"
             onClick={ handleSignIn.bind(this) }
           >
