@@ -1,6 +1,6 @@
 import React, { Component, Link } from 'react';
-import Profile from './Profile.jsx';
-import Signin from './Signin.jsx';
+import Profile from './Profile.js';
+import Signin from './Signin.js';
 import {
   isSignInPending,
   isUserSignedIn,
@@ -10,9 +10,16 @@ import {
 } from 'blockstack';
 
 export default class App extends Component {
-
   constructor(props) {
-  	super(props);
+    super(props);
+  }
+
+  componentWillMount() {
+    if (isSignInPending()) {
+      handlePendingSignIn().then(userData => {
+        window.location = window.location.origin;
+      });
+    }
   }
 
   handleSignIn(e) {
@@ -29,20 +36,13 @@ export default class App extends Component {
     return (
       <div className="site-wrapper sans-serif">
         <div className="site-wrapper-inner">
-          { !isUserSignedIn() ?
-            <Signin handleSignIn={ this.handleSignIn } />
-            : <Profile handleSignOut={ this.handleSignOut } />
-          }
+          {!isUserSignedIn() ? (
+            <Signin handleSignIn={this.handleSignIn} />
+          ) : (
+            <Profile handleSignOut={this.handleSignOut} />
+          )}
         </div>
       </div>
     );
-  }
-
-  componentWillMount() {
-    if (isSignInPending()) {
-      handlePendingSignIn().then((userData) => {
-        window.location = window.location.origin;
-      });
-    }
   }
 }

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App.jsx';
+import App from './components/App.js';
 
 import tachyons from 'tachyons/css/tachyons.min.css';
 import style from './styles/style.css';
