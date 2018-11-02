@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KitLogo from '../images/icon-192x192.png';
+import KitLogo from '../assets/icon-logo.png';
 
 export default class Signin extends Component {
   constructor(props) {
