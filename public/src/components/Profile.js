@@ -63,13 +63,19 @@ export default class Profile extends Component {
               <span className="f6 gray">{username}</span>
             </p>
             <p className="lead">
-              <button
-                className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
+              <a
+                className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black mr2"
                 id="signout-button"
                 onClick={handleSignOut.bind(this)}
               >
                 Logout
-              </button>
+              </a>
+              <a
+                href="/settings"
+                className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
+              >
+                Settings
+              </a>
             </p>
           </div>
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
