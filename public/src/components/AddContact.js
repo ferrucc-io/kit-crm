@@ -17,6 +17,7 @@ export default class AddContact extends Component {
     region: '',
     contacts: [],
     sex: '',
+    blockstackId: '',
   };
 
   componentWillMount() {
@@ -197,6 +198,19 @@ export default class AddContact extends Component {
                 country={this.state.country}
                 value={this.state.region}
                 onChange={val => this.selectRegion(val)}
+              />
+            </label>
+          </fieldset>
+          <fieldset disabled={loading} aria-busy={loading}>
+            <label htmlFor="blockstackId">
+              Blockstack Id
+              <input
+                type="text"
+                id="blockstackId"
+                name="blockstackId"
+                placeholder="Blockstack ID.."
+                value={this.state.blockstackId}
+                onChange={this.handleChange}
               />
             </label>
           </fieldset>
