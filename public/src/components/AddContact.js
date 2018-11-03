@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { isSignInPending} from 'blockstack';
+import { isSignInPending, putFile} from 'blockstack';
 import Nav from './Nav'
 import Form from './styles/Form';
 import Error from './ErrorMessage';

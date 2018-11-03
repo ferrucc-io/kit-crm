@@ -27,7 +27,7 @@ export default class Main extends Component {
 
   handleSignIn(e) {
     e.preventDefault();
-    redirectToSignIn();
+    redirectToSignIn(origin, origin + '/manifest.json', ['store_write', 'publish_data']);
   }
 
   handleSignOut(e) {
