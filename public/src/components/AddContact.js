@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { isSignInPending, putFile, getFile } from 'blockstack';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -57,6 +59,9 @@ export default class AddContact extends Component {
     contacts.unshift(newContact);
     const options = { encrypt: false };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
+    toast(`Just Added ${this.state.name} to your contacts`, {
+      className: 'toast-notification',
+    });
   }
 
   selectCountry(val) {
@@ -217,6 +222,7 @@ export default class AddContact extends Component {
           <button type="submit" className="bg-black">
             Submit
           </button>
+          <ToastContainer closeButton={false} hideProgressBar />
         </Form>
       </div>
     ) : null;
