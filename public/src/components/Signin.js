@@ -11,7 +11,7 @@ export default class Signin extends Component {
 
     return (
       <div className="panel-landing" id="section-1">
-        <div className="mb4">
+        <div className="mb4 mt4">
           <img src={KitLogo} alt="Kit Logo" />
           <h1 className="f1 mb0">KIT CRM</h1>
           <h2 className="mt0 f4">Keep In Touch, your personal CRM</h2>
