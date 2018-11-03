@@ -1,3 +1,4 @@
+require('babel-polyfill');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -19,7 +20,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   target: 'web',
   output: {
     path: path.resolve('public/build'),
@@ -41,7 +42,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,

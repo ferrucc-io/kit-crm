@@ -36,6 +36,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "blockstack": "^18.1.0",
     "moment": "^2.22.2",
     "react": "^16.6.0",
