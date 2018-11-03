@@ -7,7 +7,8 @@ import {
   handlePendingSignIn,
   signUserOut,
 } from 'blockstack';
-import Auth from './Auth';
+import Profile from './Profile.js';
+import SignIn from './Signin.js';
 import About from './About';
 import AddContact from './AddContact';
 
@@ -37,11 +38,20 @@ export default class Main extends Component {
   render() {
     return (
       <main className="sans-serif">
-        <Switch>
-          <Route exact path="/" component={Auth} />
-          <Route path="/about" component={About} />
-          <Route path="/add-contact" component={AddContact} />
-        </Switch>
+        
+        {!isUserSignedIn() ? (
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/add-contact" component={() => <SignIn handleSignIn={this.handleSignIn} />}/>
+            <Route path="/" component={() => <SignIn handleSignIn={this.handleSignIn} />}/>
+          </Switch>
+          ) : (
+            <Switch>
+              <Route path="/about" component={About} />
+              <Route path="/add-contact" component={() => <AddContact handleSignOut={this.handleSignOut} />}/>
+              <Route path="/" component={() => <Profile handleSignOut={this.handleSignOut} />}/>
+            </Switch>
+          )}
       </main>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import { isSignInPending} from 'blockstack';
 import Nav from './Nav'
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -34,7 +35,7 @@ export default class AddContact extends Component {
   render() {
     const loading = false;
     const error = false;
-    return (
+    return !isSignInPending() ? (
       <div>
         <Nav />
         <h1>Add Contact</h1>
@@ -65,7 +66,7 @@ export default class AddContact extends Component {
               type="text"
               id="lastName"
               name="lastName"
-              placeholder="Name.."
+              placeholder="Last Name.."
               required
               value={this.state.lastName}
               onChange={this.handleChange}
@@ -74,12 +75,12 @@ export default class AddContact extends Component {
         </fieldset>
         <fieldset >
           <label htmlFor="email">
-            Last Name
+          Email
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Name.."
+              placeholder="Email.."
               required
               value={this.state.email}
               onChange={this.handleChange}
@@ -88,12 +89,12 @@ export default class AddContact extends Component {
         </fieldset>
         <fieldset >
           <label htmlFor="phoneNumber">
-            Last Name
+            Phone Number
             <input
               type="text"
               id="phoneNumber"
               name="phoneNumber"
-              placeholder="Name.."
+              placeholder="Phone Number.."
               required
               value={this.state.phoneNumber}
               onChange={this.handleChange}
@@ -164,6 +165,6 @@ export default class AddContact extends Component {
         <button type="submit" className="bg-black">Submit</button>
       </Form>
       </div>
-    );
+    ) : null;
   }
 }
