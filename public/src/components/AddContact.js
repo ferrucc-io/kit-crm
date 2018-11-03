@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { isSignInPending, putFile } from 'blockstack';
+import { isSignInPending, putFile, getFile } from 'blockstack';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -15,16 +15,30 @@ export default class AddContact extends Component {
     age: '',
     country: '',
     region: '',
+    contacts: [],
   };
+
+  componentWillMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    const options = { decrypt: false };
+    getFile('contacts.json', options).then(file => {
+      const contacts = JSON.parse(file || '[]');
+      this.setState({
+        contacts,
+      });
+    });
+  }
 
   handleNewContactSubmit(event) {
     event.preventDefault();
-    console.log('Add a contact');
     this.saveNewContact();
   }
 
   saveNewContact() {
-    const contacts = [];
+    const { contacts } = this.state;
     const newContact = {
       id: Date.now(),
       created_at: Date.now(),

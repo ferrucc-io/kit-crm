@@ -14,7 +14,16 @@ export default class Profile extends Component {
       },
     },
     username: '',
+    contacts: [],
   };
+
+  componentWillMount() {
+    this.setState({
+      person: new Person(loadUserData().profile),
+      username: loadUserData().username,
+    });
+    this.fetchData();
+  }
 
   fetchData() {
     const options = { decrypt: false };
@@ -26,21 +35,11 @@ export default class Profile extends Component {
     });
   }
 
-  componentWillMount() {
-    this.setState({
-      person: new Person(loadUserData().profile),
-      username: loadUserData().username,
-    });
-  }
-
-  componentDidMount() {
-    this.fetchData();
-  }
-
   render() {
     const { handleSignOut } = this.props;
     const { person } = this.state;
     const { username } = this.state;
+    const { contacts } = this.state;
     return !isSignInPending() ? (
       <div>
         <Nav />
@@ -75,7 +74,11 @@ export default class Profile extends Component {
           </div>
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
             <h1>Your Contacts</h1>
-
+            {contacts.map(contact => (
+              <p>
+                {contact.name} {contact.lastName}
+              </p>
+            ))}
             <div className="fr">
               <a
                 href="/add-contact"
