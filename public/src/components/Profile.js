@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { isSignInPending, loadUserData, Person, getFile } from 'blockstack';
 import Nav from './Nav';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
+import SingleContact from './SingleContact';
 
 export default class Profile extends Component {
   state = {
@@ -81,9 +82,7 @@ export default class Profile extends Component {
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
             <h1>Your Contacts</h1>
             {contacts.map(contact => (
-              <p>
-                {contact.name} {contact.lastName}
-              </p>
+              <SingleContact contact={contact} key={contact.id} />
             ))}
             <div className="fr">
               <a
