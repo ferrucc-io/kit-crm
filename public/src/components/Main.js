@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Switch, Route, PrivateRoute } from 'react-router-dom';
 import {
   isSignInPending,
@@ -11,6 +11,7 @@ import Profile from './Profile.js';
 import SignIn from './Signin.js';
 import About from './About';
 import AddContact from './AddContact';
+import Settings from './Settings';
 
 export default class Main extends Component {
   constructor(props) {
@@ -27,7 +28,10 @@ export default class Main extends Component {
 
   handleSignIn(e) {
     e.preventDefault();
-    redirectToSignIn(origin, origin + '/manifest.json', ['store_write', 'publish_data']);
+    redirectToSignIn(origin, `${origin}/manifest.json`, [
+      'store_write',
+      'publish_data',
+    ]);
   }
 
   handleSignOut(e) {
@@ -38,20 +42,41 @@ export default class Main extends Component {
   render() {
     return (
       <main className="sans-serif">
-        
         {!isUserSignedIn() ? (
           <Switch>
             <Route path="/about" component={About} />
-            <Route path="/add-contact" component={() => <SignIn handleSignIn={this.handleSignIn} />}/>
-            <Route path="/" component={() => <SignIn handleSignIn={this.handleSignIn} />}/>
+            <Route
+              path="/add-contact"
+              component={() => <SignIn handleSignIn={this.handleSignIn} />}
+            />
+            <Route
+              path="/settings"
+              component={() => <SignIn handleSignIn={this.handleSignIn} />}
+            />
+            <Route
+              path="/"
+              component={() => <SignIn handleSignIn={this.handleSignIn} />}
+            />
           </Switch>
-          ) : (
-            <Switch>
-              <Route path="/about" component={About} />
-              <Route path="/add-contact" component={() => <AddContact handleSignOut={this.handleSignOut} />}/>
-              <Route path="/" component={() => <Profile handleSignOut={this.handleSignOut} />}/>
-            </Switch>
-          )}
+        ) : (
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route
+              path="/add-contact"
+              component={() => (
+                <AddContact handleSignOut={this.handleSignOut} />
+              )}
+            />
+            <Route
+              path="/settings"
+              component={() => <Settings handleSignOut={this.handleSignOut} />}
+            />
+            <Route
+              path="/"
+              component={() => <Profile handleSignOut={this.handleSignOut} />}
+            />
+          </Switch>
+        )}
       </main>
     );
   }

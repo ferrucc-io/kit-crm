@@ -16,6 +16,7 @@ export default class AddContact extends Component {
     country: '',
     region: '',
     contacts: [],
+    sex: '',
   };
 
   componentWillMount() {
@@ -49,6 +50,7 @@ export default class AddContact extends Component {
       phoneNumber: this.state.phoneNumber,
       country: this.state.country,
       region: this.state.region,
+      sex: this.state.sex,
     };
 
     contacts.unshift(newContact);
@@ -140,6 +142,9 @@ export default class AddContact extends Component {
             <label>
               Sex
               <select onChange={this.handleChange} id="sex" name="sex">
+                <option value="" defaultChecked>
+                  Select Sex..
+                </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>

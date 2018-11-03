@@ -1,5 +1,5 @@
 {
-  "name": "KIT CRM",
+  "name": "kit-crm",
   "version": "0.0.0",
   "description": "A simple decentralised CRM for your own contacts",
   "main": "index.js",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blockstack/hello-blockstack.git"
+    "url": "git+https://github.com/ferrucc-io/kit-crm.git"
   },
   "bugs": {
-    "url": "https://github.com/blockstack/hello-blockstack/issues"
+    "url": "https://github.com/ferrucc-io/kit-crm/issues"
   },
-  "homepage": "https://github.com/blockstack/hello-blockstack#readme",
+  "homepage": "https://github.com/ferrucc-io/kit-crm#readme",
   "author": "",
   "license": "MIT",
   "devDependencies": {

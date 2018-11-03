@@ -37,13 +37,13 @@ const Form = styled.form`
     border: 1px solid #efefef;
     &:focus {
       outline: 0;
-      border: 1px solid ${props => props.theme.black};
+      border: 1px solid black;
     }
   }
   button,
   input[type='submit'] {
     width: auto;
-    background: ${props => props.theme.black};
+    background: black;
     color: white;
     border: 0;
     font-size: 2rem;
