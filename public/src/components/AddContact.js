@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { isSignInPending, putFile, getFile } from 'blockstack';
-import DatePicker from 'react-datepicker';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -13,7 +12,7 @@ export default class AddContact extends Component {
     twitterHandle: '',
     email: '',
     phoneNumber: '',
-    age: '',
+    birthDate: '',
     country: '',
     region: '',
     contacts: [],
@@ -166,14 +165,14 @@ export default class AddContact extends Component {
             </label>
           </fieldset>
           <fieldset disabled={loading} aria-busy={loading}>
-            <label htmlFor="age">
+            <label htmlFor="birthDate">
               Birth Date
               <input
-                type="number"
-                id="age"
-                name="age"
-                placeholder="Age.."
-                value={this.state.age}
+                type="date"
+                id="birthDate"
+                name="birthDate"
+                placeholder="Click to select Birthday.."
+                value={this.state.birthDate}
                 onChange={this.handleChange}
               />
             </label>
