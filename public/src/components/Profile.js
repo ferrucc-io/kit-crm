@@ -4,17 +4,6 @@ import Nav from './Nav';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 
 export default class Profile extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      person: {
-        name() {
-          return 'Anonymous';
-        },
-        avatarUrl() {
-          return avatarFallbackImage;
-        },
   state = {
     person: {
       name() {
