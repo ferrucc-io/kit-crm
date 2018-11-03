@@ -32,7 +32,7 @@ export default class Profile extends Component {
       <div>
         <Nav />
         <div className="mw9 center ph3 cf">
-          <div className="w-100 w-25-ns fl shadow-1 pa2" id="section-2">
+          <div className="w-100 w-25-ns fl pa2" id="section-2">
             <div className="">
               <img
                 src={
@@ -60,8 +60,12 @@ export default class Profile extends Component {
           </div>
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
             <h1>Your Contacts</h1>
-            <p>Hello</p>
+            
+            <div className="fr">
+                <a href="/add-contact" className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black">Add Contact</a>
+            </div>
           </div>
+
         </div>
       </div>
     ) : null;
