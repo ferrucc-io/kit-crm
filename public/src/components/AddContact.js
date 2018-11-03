@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { isSignInPending, putFile, getFile } from 'blockstack';
+import DatePicker from 'react-datepicker';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
