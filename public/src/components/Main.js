@@ -4,7 +4,7 @@ import Auth from './Auth';
 import About from './About';
 
 const Main = () => (
-  <main>
+  <main className="sans-serif">
     <Switch>
       <Route exact path="/" component={Auth} />
       <Route path="/about" component={About} />

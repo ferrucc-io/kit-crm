@@ -1,6 +1,6 @@
 import React, { Component, Link } from 'react';
 import Profile from './Profile.js';
-import Signin from './Signin.js';
+import SignIn from './Signin.js';
 import {
   isSignInPending,
   isUserSignedIn,
@@ -9,7 +9,7 @@ import {
   signUserOut,
 } from 'blockstack';
 
-export default class App extends Component {
+export default class Auth extends Component {
   constructor(props) {
     super(props);
   }
@@ -34,10 +34,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="site-wrapper sans-serif">
+      <div className="site-wrapper">
         <div className="site-wrapper-inner">
           {!isUserSignedIn() ? (
-            <Signin handleSignIn={this.handleSignIn} />
+            <SignIn handleSignIn={this.handleSignIn} />
           ) : (
             <Profile handleSignOut={this.handleSignOut} />
           )}

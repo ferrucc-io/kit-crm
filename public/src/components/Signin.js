@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import KitLogo from '../assets/icon-logo.png';
 
-export default class Signin extends Component {
+export default class SignIn extends Component {
   constructor(props) {
     super(props);
   }
