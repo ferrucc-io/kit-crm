@@ -31,12 +31,12 @@
     "path": "^0.12.7",
     "style-loader": "^0.16.1",
     "tachyons": "^4.11.1",
-    "url-loader": "^0.5.8",
+    "url-loader": "^1.1.2",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "blockstack": "^0.15.0",
+    "blockstack": "^18.1.0",
     "react": "^16.6.0",
     "react-country-region-selector": "^1.4.1",
     "react-dom": "^16.6.0",
