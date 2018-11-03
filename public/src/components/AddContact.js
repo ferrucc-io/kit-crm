@@ -8,7 +8,10 @@ export default class AddContact extends Component {
  
   state = {
     name: '',
+    lastName:'',
     twitterHandle: '',
+    email:'',
+    phoneNumber:'',
     age: '',
     country: '',
     region: '',
@@ -51,6 +54,48 @@ export default class AddContact extends Component {
               placeholder="Name.."
               required
               value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </label>
+        </fieldset>
+        <fieldset >
+          <label htmlFor="lastName">
+            Last Name
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Name.."
+              required
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+          </label>
+        </fieldset>
+        <fieldset >
+          <label htmlFor="email">
+            Last Name
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Name.."
+              required
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </label>
+        </fieldset>
+        <fieldset >
+          <label htmlFor="phoneNumber">
+            Last Name
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              placeholder="Name.."
+              required
+              value={this.state.phoneNumber}
               onChange={this.handleChange}
             />
           </label>
