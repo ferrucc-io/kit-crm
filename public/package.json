@@ -1,7 +1,7 @@
 {
-  "name": "hello-blockstack",
+  "name": "KIT CRM",
   "version": "0.0.0",
-  "description": "A simple Blockstack app using ReactJS",
+  "description": "A simple decentralised CRM for your own contacts",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
