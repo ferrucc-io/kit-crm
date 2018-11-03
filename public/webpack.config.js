@@ -1,17 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 
-// copy manifest.json to the path: 'public/build'
-// this will allow for the authRequest to see the file at www.example.com/manifest.json
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ManifestAssetPlugin = new CopyWebpackPlugin([ { from: 'src/assets/manifest.json', to: 'manifest.json' } ]);
-const IconAssetPlugin = new CopyWebpackPlugin([ { from: 'src/images/icon-192x192.png', to: 'icon-192x192.png' } ]);
+
+const ManifestAssetPlugin = new CopyWebpackPlugin([
+  { from: 'src/assets/manifest.json', to: 'manifest.json' },
+]);
+const IconAssetPlugin = new CopyWebpackPlugin([
+  { from: 'src/images/icon-192x192.png', to: 'icon-192x192.png' },
+]);
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './src/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: 'body',
 });
 
 module.exports = {
@@ -25,9 +29,10 @@ module.exports = {
     historyApiFallback: true,
     watchOptions: { aggregateTimeout: 300, poll: 1000 },
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers':
+        'X-Requested-With, content-type, Authorization',
     },
   },
   module: {
@@ -39,8 +44,8 @@ module.exports = {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
         loader: 'file-loader!url-loader',
       },
-      { test: /\.css$/, loader: 'style-loader!css-loader' }
-    ]
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+    ],
   },
-  plugins: [HtmlWebpackPluginConfig, ManifestAssetPlugin, IconAssetPlugin]
-}
+  plugins: [HtmlWebpackPluginConfig, ManifestAssetPlugin, IconAssetPlugin],
+};
