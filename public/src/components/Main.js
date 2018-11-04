@@ -66,7 +66,6 @@ export default class Main extends Component {
         ) : (
           <Switch>
             <Route
-              key="contact"
               path="/contact/:id"
               component={({ match }) => (
                 <SingleContactPage
