@@ -59,7 +59,7 @@ export default class AddContact extends Component {
     contacts.unshift(newContact);
     const options = { encrypt: false };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
-    toast(`Just Added ${this.state.name} to your contacts`, {
+    toast(`Just added ${this.state.name} to your contacts`, {
       className: 'toast-notification',
     });
   }

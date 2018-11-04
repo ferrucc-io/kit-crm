@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { isSignInPending, loadUserData, Person, getFile } from 'blockstack';
+import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import SingleContact from './SingleContact';
@@ -71,12 +72,12 @@ export default class Profile extends Component {
               >
                 Logout
               </a>
-              <a
-                href="/settings"
+              <Link
+                to="/settings"
                 className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
               >
                 Settings
-              </a>
+              </Link>
             </p>
           </div>
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
@@ -85,12 +86,12 @@ export default class Profile extends Component {
               <SingleContact contact={contact} key={contact.id} />
             ))}
             <div className="fr">
-              <a
-                href="/add-contact"
+              <Link
+                to="/add-contact"
                 className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
               >
                 Add Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>

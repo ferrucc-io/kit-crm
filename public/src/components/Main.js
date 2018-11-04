@@ -12,6 +12,7 @@ import SignIn from './Signin.js';
 import About from './About';
 import AddContact from './AddContact';
 import Settings from './Settings';
+import SingleContactPage from './SingleContactPage.js';
 
 export default class Main extends Component {
   constructor(props) {
@@ -44,6 +45,10 @@ export default class Main extends Component {
       <main className="sans-serif">
         {!isUserSignedIn() ? (
           <Switch>
+            <Route
+              path="/contact/:id"
+              component={() => <SignIn handleSignIn={this.handleSignIn} />}
+            />
             <Route path="/about" component={About} />
             <Route
               path="/add-contact"
@@ -60,6 +65,10 @@ export default class Main extends Component {
           </Switch>
         ) : (
           <Switch>
+            <Route
+              path="/contact/:userId"
+              component={() => <SingleContactPage />}
+            />
             <Route path="/about" component={About} />
             <Route
               path="/add-contact"

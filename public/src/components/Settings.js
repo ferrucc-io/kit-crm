@@ -44,7 +44,9 @@ export default class Settings extends Component {
         <Nav />
         <h1>Manage Contacts</h1>
         <a
-          onClick={this.deleteAllContacts()}
+          onClick={() => {
+            this.deleteAllContacts();
+          }}
           className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
         >
           Delete all Contacts
