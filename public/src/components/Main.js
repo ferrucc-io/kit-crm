@@ -46,7 +46,7 @@ export default class Main extends Component {
         {!isUserSignedIn() ? (
           <Switch>
             <Route
-              path="/contact/:id"
+              path="/contact"
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
             />
             <Route path="/about" component={About} />
@@ -65,10 +65,7 @@ export default class Main extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route
-              path="/contact/:userId"
-              component={() => <SingleContactPage />}
-            />
+            <Route path="/contact" component={SingleContactPage} />
             <Route path="/about" component={About} />
             <Route
               path="/add-contact"
