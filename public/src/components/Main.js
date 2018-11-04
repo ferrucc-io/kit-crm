@@ -65,7 +65,16 @@ export default class Main extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route path="/contact" component={SingleContactPage} />
+            <Route
+              key="contact"
+              path="/contact/:id"
+              component={({ match }) => (
+                <SingleContactPage
+                  handleSignOut={this.handleSignOut}
+                  id={match.params.id}
+                />
+              )}
+            />
             <Route path="/about" component={About} />
             <Route
               path="/add-contact"

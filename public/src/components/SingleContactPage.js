@@ -4,7 +4,7 @@ export default class SingleContactPage extends Component {
   render() {
     return (
       <div>
-        <p>Hello</p>
+        <p>Hello </p>
       </div>
     );
   }
