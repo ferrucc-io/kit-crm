@@ -5,12 +5,14 @@ export default class SingleContact extends Component {
     const { contact } = this.props;
     return (
       <div className="db">
-        <img
-          src={`https://avatars.io/twitter/${contact.twitterHandle}`}
-          className="fl br-100 h3 w3 w-10"
-          alt="Profile Image"
-        />
-        <p className="fl w-90 h3 pl3">
+        <div className="w-20 w-10-ns">
+          <img
+            src={`https://avatars.io/twitter/${contact.twitterHandle}`}
+            className="fl br-100 w3"
+            alt="Profile Image"
+          />
+        </div>
+        <p className="fl w-80 w-90-ns h3 pl3">
           {contact.name} {contact.lastName}
         </p>
       </div>
