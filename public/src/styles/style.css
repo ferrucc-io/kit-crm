@@ -8,3 +8,8 @@ body{color:#000;text-align:center;}
     color: #FFFFFF !important;
     border-radius: 6px; 
 }
+
+.profile-image{
+    min-height: 32px;
+    min-width: 32px;
+}
