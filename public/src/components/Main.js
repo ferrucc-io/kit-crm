@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, PrivateRoute } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import {
   isSignInPending,
   isUserSignedIn,
@@ -12,7 +12,7 @@ import SignIn from './Signin.js';
 import About from './About';
 import AddContact from './AddContact';
 import Settings from './Settings';
-import SingleContactPage from './SingleContactPage.js';
+import SingleContactPage from './SingleContactPage';
 
 export default class Main extends Component {
   constructor(props) {
