@@ -1,7 +1,7 @@
 {
-  "name": "Hello, Blockstack",
+  "name": "KIT CRM",
   "start_url": "localhost:8080",
-  "description": "A simple demo of Blockstack Auth",
+  "description": "A CRM for your contacts built on Blockstack",
   "icons": [{
     "src": "http://localhost:8080/icon-192x192.png",
     "sizes": "192x192",
