@@ -7,8 +7,8 @@ import {
   handlePendingSignIn,
   signUserOut,
 } from 'blockstack';
-import Profile from './Profile.js';
-import SignIn from './Signin.js';
+import Profile from './Profile';
+import SignIn from './SignIn';
 import About from './About';
 import AddContact from './AddContact';
 import Settings from './Settings';
@@ -66,13 +66,9 @@ export default class Main extends Component {
         ) : (
           <Switch>
             <Route
-              path="/contact/:id"
-              component={({ match }) => (
-                <SingleContactPage
-                  handleSignOut={this.handleSignOut}
-                  id={match.params.id}
-                />
-              )}
+              exact
+              path="/"
+              component={() => <Profile handleSignOut={this.handleSignOut} />}
             />
             <Route path="/about" component={About} />
             <Route
@@ -85,10 +81,7 @@ export default class Main extends Component {
               path="/settings"
               component={() => <Settings handleSignOut={this.handleSignOut} />}
             />
-            <Route
-              path="/"
-              component={() => <Profile handleSignOut={this.handleSignOut} />}
-            />
+            <Route path="/contact/id" component={SingleContactPage} />
           </Switch>
         )}
       </main>
