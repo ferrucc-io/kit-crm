@@ -15,10 +15,6 @@ import Settings from './Settings';
 import SingleContactPage from './SingleContactPage';
 
 export default class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     if (isSignInPending()) {
       handlePendingSignIn().then(userData => {
@@ -46,7 +42,7 @@ export default class Main extends Component {
         {!isUserSignedIn() ? (
           <Switch>
             <Route
-              path="/contact/id"
+              path="/contact"
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
             />
             <Route path="/about" component={About} />
@@ -81,7 +77,12 @@ export default class Main extends Component {
               path="/settings"
               component={() => <Settings handleSignOut={this.handleSignOut} />}
             />
-            <Route path="/contact/id" component={SingleContactPage} />
+            <Route
+              path="/contact"
+              component={() => (
+                <SingleContactPage handleSignOut={this.handleSignOut} />
+              )}
+            />
           </Switch>
         )}
       </main>
