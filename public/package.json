@@ -4,8 +4,8 @@
   "description": "A simple decentralised CRM for your own contacts",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack -p"
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack -p --mode production"
   },
   "repository": {
     "type": "git",
@@ -32,8 +32,8 @@
     "style-loader": "^0.16.1",
     "tachyons": "^4.11.1",
     "url-loader": "^1.1.2",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.4.2"
+    "webpack": "^4.25.0",
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -44,6 +44,7 @@
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^4.4.0",
-    "styled-components": "^4.0.3"
+    "styled-components": "^4.0.3",
+    "webpack-cli": "^3.1.2"
   }
 }

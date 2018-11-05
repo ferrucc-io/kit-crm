@@ -38,7 +38,11 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.json$/, use: 'json-loader' },
+      {
+        test: /config\.json$/,
+        loader: 'special-loader',
+        type: 'javascript/auto',
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
