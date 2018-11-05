@@ -19,7 +19,7 @@ export default class SingleContact extends Component {
               alt=""
             />
           </div>
-          <p className="fl w-80 w-90-ns h3 pl3">
+          <p className="fl w-80 w-90-ns h3 pl3 black">
             {contact.name} {contact.lastName}
           </p>
         </Link>
