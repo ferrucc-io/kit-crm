@@ -2,7 +2,7 @@
 ### Building a Personal CRM on Blockstack
 
 This app isn't ready for regular use yet, to try it visit:
-[https://kit.now.sh/](https://kit.now.sh/)
+[KIT Demo Deployment](https://kit.now.sh/)
 
 To run it locally, follow these steps:
 
