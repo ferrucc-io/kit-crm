@@ -43,6 +43,15 @@ export default class Settings extends Component {
       <div>
         <Nav />
         <h1>Manage Contacts</h1>
+        <h3>Import Contacts</h3>
+        <a className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black">
+          Import from CSV
+        </a>
+        <h3>Export Contacts</h3>
+        <a className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black">
+          Export as CSV
+        </a>
+        <h3>Delete Contacts</h3>
         <a
           onClick={() => {
             this.deleteAllContacts();

@@ -72,9 +72,7 @@ export default class AddContact extends Component {
       twitterHandle: '',
       email: '',
       phoneNumber: '',
-      country: '',
       birthDate: '',
-      region: '',
       sex: '',
       blockstackId: '',
     });
