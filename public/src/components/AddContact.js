@@ -62,6 +62,18 @@ export default class AddContact extends Component {
     toast(`Just added ${this.state.name} to your contacts`, {
       className: 'toast-notification',
     });
+    this.setState({
+      country: '',
+      region: '',
+      name: '',
+      lastName: '',
+      twitterHandle: '',
+      email: '',
+      phoneNumber: '',
+      country: '',
+      region: '',
+      sex: '',
+    });
   }
 
   selectCountry(val) {

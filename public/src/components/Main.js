@@ -61,11 +61,6 @@ export default class Main extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route
-              exact
-              path="/"
-              component={() => <Profile handleSignOut={this.handleSignOut} />}
-            />
             <Route path="/about" component={About} />
             <Route
               path="/add-contact"
@@ -82,6 +77,10 @@ export default class Main extends Component {
               component={() => (
                 <SingleContactPage handleSignOut={this.handleSignOut} />
               )}
+            />
+            <Route
+              path="/"
+              component={() => <Profile handleSignOut={this.handleSignOut} />}
             />
           </Switch>
         )}
