@@ -1,4 +1,5 @@
 # KIT - Keep in Touch
+## [Roadmap](https://www.notion.so/Roadmap-a1f5ad4f560045488e579cb3ccbd6f6f)
 ### Building a Personal CRM on Blockstack
 
 This app isn't ready for regular use yet, to try it visit:
