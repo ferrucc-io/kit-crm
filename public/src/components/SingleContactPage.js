@@ -5,7 +5,7 @@ import Nav from './Nav';
 const mySingleContactPage = ({ location, route, params }) => (
   <div>
     <Nav />
-    <p>Hello {location.search.substring(1)} </p>
+    <p>Hello {location.search.substring(4)} </p>
   </div>
 );
 
