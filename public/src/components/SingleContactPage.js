@@ -34,21 +34,54 @@ class mySingleContactPage extends Component {
     return (
       <div>
         <Nav />
-        <div>
-          {contact.map(contact => (
-            <div>
-              <img
-                src={`https://avatars.io/twitter/${contact.twitterHandle}`}
-                className="fl br-100 w3 mt2-m mt0-l"
-                alt=""
-              />
-              <div>
-                {contact.name} {contact.lastName}
+        {contact.map(contact => (
+          <div className="w-100 w-70-l center">
+            <div className="">
+              <div className="w-20 fl">
+                <img
+                  src={`https://avatars.io/twitter/${contact.twitterHandle}`}
+                  className="fl br-100 ml3 mt0-l"
+                  alt=""
+                />
               </div>
-              <div>{contact.twitterHandle}</div>
+              <div className="w-80 fl">
+                <h1 className="f2 f1-ns">
+                  {contact.name} {contact.lastName}
+                </h1>
+              </div>
+              <div className="center w-40 pt6">
+                <div className="tl">
+                  <div>
+                    <span className="b">Phone Number:</span>{' '}
+                    {contact.phoneNumber}
+                  </div>
+                  <div>
+                    <span className="b">Email:</span> {contact.email}
+                  </div>
+                  <div>
+                    <span className="b">Country:</span> {contact.country},{' '}
+                    {contact.region}
+                  </div>
+                  <div>
+                    <span className="b">Birthday</span> {contact.birthDate}
+                  </div>
+                </div>
+                <div className="tl">
+                  <h2>Social</h2>
+                  // add social media icons here
+                  <div>
+                    Twitter:
+                    {contact.twitterHandle}
+                  </div>
+                  <div>
+                    Blockstack Id:
+                    {contact.blockstackId}
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     );
   }

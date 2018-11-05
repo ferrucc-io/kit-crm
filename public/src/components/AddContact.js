@@ -54,6 +54,8 @@ export default class AddContact extends Component {
       country: this.state.country,
       region: this.state.region,
       sex: this.state.sex,
+      blockstackId: this.state.blockstackId,
+      birthDate: this.state.birthDate,
     };
 
     contacts.unshift(newContact);
@@ -71,8 +73,10 @@ export default class AddContact extends Component {
       email: '',
       phoneNumber: '',
       country: '',
+      birthDate: '',
       region: '',
       sex: '',
+      blockstackId: '',
     });
   }
 
