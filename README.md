@@ -1,7 +1,10 @@
 # KIT - Keep in Touch
 ### Building a Personal CRM on Blockstack
 
-This app isn't ready for production yet, to try it follow these steps:
+This app isn't ready for regular use yet, to try it visit:
+[https://kit.now.sh/](https://kit.now.sh/)
+
+To run it locally, follow these steps:
 
 * Clone this repository
 * Move to the `/public` directory `cd public`
