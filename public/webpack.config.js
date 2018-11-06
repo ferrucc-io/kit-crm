@@ -56,6 +56,7 @@ module.exports = {
           mimetype: 'image/png',
         },
       },
+
       { test: /\.css$/, loader: 'style-loader!css-loader' },
     ],
   },
