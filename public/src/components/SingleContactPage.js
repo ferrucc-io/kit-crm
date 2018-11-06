@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import { isSignInPending, getFile } from 'blockstack';
+import { isSignInPending, getFile, putFile } from 'blockstack';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
 import Nav from './Nav';
 
@@ -11,7 +13,7 @@ function find_in_object(my_object, my_criteria) {
 }
 
 class mySingleContactPage extends Component {
-  state = { contact: [] };
+  state = { contact: [], contacts: [] };
 
   componentWillMount() {
     this.fetchData();
@@ -20,14 +22,28 @@ class mySingleContactPage extends Component {
   fetchData() {
     const options = { decrypt: false };
     getFile('contacts.json', options).then(file => {
-      let contact = JSON.parse(file || '[]');
-      contact = find_in_object(contact, {
+      const contacts = JSON.parse(file || '[]');
+      const contact = find_in_object(contacts, {
         id: this.props.location.search.substring(4),
       });
       this.setState({
         contact,
+        contacts,
       });
     });
+  }
+
+  deleteContact() {
+    const toDelete = this.state.contact[0].id;
+    const newContactsList = this.state.contacts.filter(
+      contact => contact.id !== toDelete
+    );
+    const options = { encrypt: false };
+    putFile('contacts.json', JSON.stringify(newContactsList), options).then(
+      () => {
+        this.props.history.push('/');
+      }
+    );
   }
 
   render() {
@@ -98,10 +114,16 @@ class mySingleContactPage extends Component {
               >
                 ✏️️️ Edit Contact
               </a>
-              <a className="link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white">
+              <a
+                className="link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white"
+                onClick={() => {
+                  this.deleteContact();
+                }}
+              >
                 Delete Contact
               </a>
             </div>
+            <ToastContainer />
           </div>
         ))}
       </div>
