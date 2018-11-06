@@ -94,9 +94,12 @@ class mySingleContactPage extends Component {
             <div className="mt3 right tr pr4">
               <a
                 href={`/edit-contact?id=${contact.id}`}
-                className="link dim ba bw1 ph2 pv2 mb2 dib no-underline black"
+                className="link dim ba bw1 ph2 pv2 mb2 dib no-underline black mr2"
               >
                 ✏️️️ Edit Contact
+              </a>
+              <a className="link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white">
+                Delete Contact
               </a>
             </div>
           </div>
