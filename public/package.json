@@ -4,6 +4,7 @@
   "description": "A simple decentralised CRM for your own contacts",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --mode development",
     "start": "webpack-dev-server --mode development",
     "build": "webpack -p --mode production"
   },
