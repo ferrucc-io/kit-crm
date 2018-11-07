@@ -51,10 +51,7 @@ module.exports = {
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
-        loader: 'url-loader?limit=100000',
-        options: {
-          mimetype: 'image/png',
-        },
+        loader: 'url-loader',
       },
 
       { test: /\.css$/, loader: 'style-loader!css-loader' },

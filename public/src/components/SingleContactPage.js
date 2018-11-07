@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { isSignInPending, getFile, putFile } from 'blockstack';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
 import findObjectBy from './util/findObjectBy';
+import ifAttribute from './util/ifAttribute';
 import Nav from './Nav';
 
 class mySingleContactPage extends Component {
@@ -92,9 +93,12 @@ class mySingleContactPage extends Component {
                       </div>
                     </a>
                     <div>
-                      <img src={BlockstackLogo} alt="blockstack" />
-                      Blockstack Id:
-                      {contact.blockstackId}
+                      <img
+                        src={BlockstackLogo}
+                        alt="blockstack"
+                        className="w1 black"
+                      />
+                      <span className="ml2">{contact.blockstackId}</span>
                     </div>
                   </div>
                 </div>
