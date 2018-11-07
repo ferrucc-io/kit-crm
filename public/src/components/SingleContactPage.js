@@ -43,10 +43,15 @@ class mySingleContactPage extends Component {
   render() {
     const { contact } = this.state;
     let UserCountryBlock;
+    let EmailBlock;
+    let BirthDateBlock;
+    let PhoneNumberBlock;
+    let BlockstackBlock;
+    let TwitterBlock;
     if (contact[0]) {
       if (ifAttribute(contact[0].country)) {
         UserCountryBlock = (
-          <div className="m2">
+          <div className="mt2">
             <span className="b">Country:</span> {contact[0].country},{' '}
             {contact[0].region}
           </div>
@@ -58,6 +63,51 @@ class mySingleContactPage extends Component {
             🌎
           </div>
         );
+      if (ifAttribute(contact[0].email)) {
+        EmailBlock = (
+          <div className="mt2">
+            <span className="b">Email:</span> {contact[0].email}
+          </div>
+        );
+      } else EmailBlock = null;
+      if (ifAttribute(contact[0].birthDate)) {
+        BirthDateBlock = (
+          <div className="mt2">
+            <span className="b">Birthday:</span> {contact[0].birthDate}
+          </div>
+        );
+      } else BirthDateBlock = null;
+      if (ifAttribute(contact[0].phoneNumber)) {
+        PhoneNumberBlock = (
+          <div className="mt2">
+            <span className="b">Phone Number:</span> {contact[0].phoneNumber}
+          </div>
+        );
+      } else PhoneNumberBlock = null;
+      if (ifAttribute(contact[0].twitterHandle)) {
+        TwitterBlock = (
+          <a
+            href={`https://twitter.com/${contact[0].twitterHandle}`}
+            className="no-underline black"
+          >
+            <div>
+              <p>
+                {' '}
+                <i className="fa fa-twitter" />
+                <span className="ml2">{contact[0].twitterHandle}</span>
+              </p>
+            </div>
+          </a>
+        );
+      } else TwitterBlock = null;
+      if (ifAttribute(contact[0].blockstackId)) {
+        BlockstackBlock = (
+          <div>
+            <img src={BlockstackLogo} alt="blockstack" className="w1" />
+            <span className="ml2">{contact[0].blockstackId}</span>
+          </div>
+        );
+      } else BlockstackBlock = null;
     }
     return !isSignInPending() ? (
       <div>
@@ -80,40 +130,15 @@ class mySingleContactPage extends Component {
                 </div>
                 <div className="center w-40 pt6">
                   <div className="tl">
-                    <div className="mt2">
-                      <span className="b">Phone Number:</span>{' '}
-                      {contact.phoneNumber}
-                    </div>
-                    <div className="mt2">
-                      <span className="b">Email:</span> {contact.email}
-                    </div>
-                    <div className="mt2">
-                      <span className="b">Birthday</span> {contact.birthDate}
-                    </div>
+                    {PhoneNumberBlock}
+                    {EmailBlock}
+                    {BirthDateBlock}
                     {UserCountryBlock}
                   </div>
                   <div className="tl">
                     <h2>Social</h2>
-                    <a
-                      href={`https://twitter.com/${contact.twitterHandle}`}
-                      className="no-underline black"
-                    >
-                      <div>
-                        <p>
-                          {' '}
-                          <i className="fa fa-twitter" />
-                          <span className="ml2">{contact.twitterHandle}</span>
-                        </p>
-                      </div>
-                    </a>
-                    <div>
-                      <img
-                        src={BlockstackLogo}
-                        alt="blockstack"
-                        className="w1 black"
-                      />
-                      <span className="ml2">{contact.blockstackId}</span>
-                    </div>
+                    {TwitterBlock}
+                    {BlockstackBlock}
                   </div>
                 </div>
               </div>

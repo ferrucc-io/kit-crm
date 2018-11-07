@@ -52,6 +52,10 @@ export default class Main extends Component {
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
             />
             <Route
+              path="/edit-contact"
+              component={() => <SignIn handleSignIn={this.handleSignIn} />}
+            />
+            <Route
               path="/settings"
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
             />
