@@ -14,6 +14,8 @@ const DefaultButton = styled.button`
   -ms-flex-pack: center;
   justify-content: center;
   height: 40px;
+  -webkit-appearance: none;
+  border: solid 1px;
 `;
 
 export default DefaultButton;
