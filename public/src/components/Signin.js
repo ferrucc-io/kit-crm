@@ -27,13 +27,14 @@ export default class SignIn extends Component {
         </div>
         <p>
           <DefaultButton
-            className="f6 link dim ph3 pv2 mb2 dib white bg-black b--black"
+            className="f6 ph3 pv2 mb2 dib white bg-black b--black"
             id="signin-button"
             onClick={handleSignIn.bind(this)}
+            primary
           >
             Sign In
           </DefaultButton>
-          <DefaultButton className="f6 link dim ph3 pv2 mb2 dib gray bg-white b--gray ml2">
+          <DefaultButton className="f6 link ph3 pv2 mb2 dib gray bg-transparent ml2">
             <div className="dib">Learn More →</div>
           </DefaultButton>
         </p>

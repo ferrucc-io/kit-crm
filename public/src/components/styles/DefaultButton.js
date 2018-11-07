@@ -16,6 +16,11 @@ const DefaultButton = styled.button`
   height: 40px;
   -webkit-appearance: none;
   border: solid 1px;
+  :hover {
+    color: ${props => (props.primary ? 'black' : 'white')};
+    background: ${props => (props.primary ? 'white' : 'black')};
+    border-color: 'black';
+  }
 `;
 
 export default DefaultButton;
