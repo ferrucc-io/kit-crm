@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { isSignInPending, getFile, putFile } from 'blockstack';
-import 'react-toastify/dist/ReactToastify.min.css';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
 import findObjectBy from './util/findObjectBy';
 import Nav from './Nav';
@@ -117,7 +116,6 @@ class mySingleContactPage extends Component {
                 Delete Contact
               </a>
             </div>
-            <ToastContainer />
           </div>
         ))}
       </div>
