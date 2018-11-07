@@ -1,5 +1,5 @@
-export default function findObjectBy(my_object, my_criteria) {
-  return my_object.filter(obj =>
-    Object.keys(my_criteria).every(c => obj[c] == my_criteria[c])
+export default function findObjectBy(myObject, myCriteria) {
+  return myObject.filter(obj =>
+    Object.keys(myCriteria).every(c => obj[c] == myCriteria[c])
   );
 }

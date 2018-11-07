@@ -36,6 +36,9 @@ class EditContactPage extends Component {
       const contact = findObjectBy(contacts, {
         id: this.props.location.search.substring(4),
       });
+      if (!contact) {
+        this.props.history.push('/');
+      }
       this.setState({
         contacts,
         name: contact[0].name,
@@ -59,7 +62,7 @@ class EditContactPage extends Component {
   }
 
   saveEditedContact() {
-    const { contacts } = this.state;
+    let { contacts } = this.state;
     const newContact = {
       id: this.state.id,
       name: this.state.name,
@@ -73,7 +76,9 @@ class EditContactPage extends Component {
       blockstackId: this.state.blockstackId,
       birthDate: this.state.birthDate,
     };
-
+    // delete the contact with the same ID as the edited one
+    contacts = contacts.filter(contact => contact.id !== newContact.id);
+    // add the edited contact to all contacts
     contacts.unshift(newContact);
     const options = { encrypt: false };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
