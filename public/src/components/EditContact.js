@@ -4,6 +4,7 @@ import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { isSignInPending, putFile, getFile } from 'blockstack';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import findObjectBy from './util/findObjectBy';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -32,8 +33,22 @@ class EditContactPage extends Component {
     const options = { decrypt: false };
     getFile('contacts.json', options).then(file => {
       const contacts = JSON.parse(file || '[]');
+      const contact = findObjectBy(contacts, {
+        id: this.props.location.search.substring(4),
+      });
       this.setState({
         contacts,
+        name: contact[0].name,
+        id: contact[0].id,
+        lastName: contact[0].lastName,
+        twitterHandle: contact[0].twitterHandle,
+        email: contact[0].email,
+        phoneNumber: contact[0].phoneNumber,
+        birthDate: contact[0].birthDate,
+        country: contact[0].country,
+        region: contact[0].region,
+        sex: contact[0].sex,
+        blockstackId: contact[0].blockstackId,
       });
     });
   }
@@ -91,7 +106,7 @@ class EditContactPage extends Component {
         <Form
           onSubmit={async e => {
             e.preventDefault();
-            this.handleNewContactSubmit(e);
+            this.handleEditContactSubmit(e);
           }}
         >
           <Error error={error} />

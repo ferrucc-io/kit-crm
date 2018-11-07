@@ -4,13 +4,8 @@ import { isSignInPending, getFile, putFile } from 'blockstack';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
+import findObjectBy from './util/findObjectBy';
 import Nav from './Nav';
-
-function find_in_object(my_object, my_criteria) {
-  return my_object.filter(obj =>
-    Object.keys(my_criteria).every(c => obj[c] == my_criteria[c])
-  );
-}
 
 class mySingleContactPage extends Component {
   state = { contact: [], contacts: [] };
@@ -23,7 +18,7 @@ class mySingleContactPage extends Component {
     const options = { decrypt: false };
     getFile('contacts.json', options).then(file => {
       const contacts = JSON.parse(file || '[]');
-      const contact = find_in_object(contacts, {
+      const contact = findObjectBy(contacts, {
         id: this.props.location.search.substring(4),
       });
       this.setState({

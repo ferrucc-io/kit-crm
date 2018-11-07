@@ -7,6 +7,7 @@ import {
   handlePendingSignIn,
   signUserOut,
 } from 'blockstack';
+import EditContact from './EditContact';
 import Profile from './Profile';
 import SignIn from './SignIn';
 import About from './About';
@@ -66,6 +67,12 @@ export default class Main extends Component {
               path="/add-contact"
               component={() => (
                 <AddContact handleSignOut={this.handleSignOut} />
+              )}
+            />
+            <Route
+              path="/edit-contact"
+              component={() => (
+                <EditContact handleSignOut={this.handleSignOut} />
               )}
             />
             <Route
