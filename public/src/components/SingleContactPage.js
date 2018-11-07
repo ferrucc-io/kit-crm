@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { isSignInPending, getFile, putFile } from 'blockstack';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
 import findObjectBy from './util/findObjectBy';
@@ -43,7 +42,7 @@ class mySingleContactPage extends Component {
 
   render() {
     const { contact } = this.state;
-    return (
+    return !isSignInPending() ? (
       <div>
         <Nav />
         {contact.map(contact => (
@@ -122,7 +121,7 @@ class mySingleContactPage extends Component {
           </div>
         ))}
       </div>
-    );
+    ) : null;
   }
 }
 
