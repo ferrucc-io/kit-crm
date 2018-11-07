@@ -42,6 +42,23 @@ class mySingleContactPage extends Component {
 
   render() {
     const { contact } = this.state;
+    let UserCountryBlock;
+    if (contact[0]) {
+      if (ifAttribute(contact[0].country)) {
+        UserCountryBlock = (
+          <div className="m2">
+            <span className="b">Country:</span> {contact[0].country},{' '}
+            {contact[0].region}
+          </div>
+        );
+      } else
+        UserCountryBlock = (
+          <div className="mt2">
+            <span className="b">Country:</span>
+            🌎
+          </div>
+        );
+    }
     return !isSignInPending() ? (
       <div>
         <Nav />
@@ -71,12 +88,9 @@ class mySingleContactPage extends Component {
                       <span className="b">Email:</span> {contact.email}
                     </div>
                     <div className="mt2">
-                      <span className="b">Country:</span> {contact.country},{' '}
-                      {contact.region}
-                    </div>
-                    <div className="mt2">
                       <span className="b">Birthday</span> {contact.birthDate}
                     </div>
+                    {UserCountryBlock}
                   </div>
                   <div className="tl">
                     <h2>Social</h2>
