@@ -22,6 +22,9 @@ const DefaultButton = styled.button`
     background: ${props => (props.primary ? 'white' : 'black')};
     border-color: 'black';
   }
+  :focus {
+    outline: none;
+  }
 `;
 
 export default DefaultButton;

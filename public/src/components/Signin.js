@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 import KitLogo from '../assets/icon-logo.png';
 import BlockstackLogo from '../assets/blockstack-logo-landscape@2x.png';
 import DefaultButton from './styles/DefaultButton';
+import LearnMore from './LearnMore';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -11,8 +13,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 export default class SignIn extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    showWhy: false,
+  };
+
+  showWhy(event) {
+    event.preventDefault();
+    // eslint-disable-next-line no-unused-expressions
+    this.state.showWhy
+      ? this.setState({
+          showWhy: false,
+        })
+      : this.setState({
+          showWhy: true,
+        });
   }
 
   render() {
@@ -34,7 +48,10 @@ export default class SignIn extends Component {
           >
             Sign In
           </DefaultButton>
-          <DefaultButton className="f6 link ph3 pv2 mb2 dib gray bg-transparent ml2">
+          <DefaultButton
+            className="f6 link ph3 pv2 mb2 dib gray bg-transparent ml2"
+            onClick={() => this.showWhy(event)}
+          >
             <div>Learn More </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +67,7 @@ export default class SignIn extends Component {
             </svg>
           </DefaultButton>
         </p>
+        {this.state.showWhy ? <LearnMore /> : null}
         <GlobalStyle />
       </div>
     );

@@ -47,6 +47,7 @@ export default class Main extends Component {
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
             />
             <Route path="/about" component={About} />
+
             <Route
               path="/add-contact"
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
@@ -67,6 +68,7 @@ export default class Main extends Component {
         ) : (
           <Switch>
             <Route path="/about" component={About} />
+
             <Route
               path="/add-contact"
               component={() => (
