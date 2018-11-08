@@ -90,19 +90,16 @@ class mySingleContactPage extends Component {
             href={`https://twitter.com/${contact[0].twitterHandle}`}
             className="no-underline black"
           >
-            <div>
-              <p>
-                {' '}
-                <i className="fa fa-twitter" />
-                <span className="ml2">{contact[0].twitterHandle}</span>
-              </p>
+            <div className="inline-flex justify-center items-center">
+              <i className="fa fa-twitter" />
+              <span className="ml2">{contact[0].twitterHandle}</span>
             </div>
           </a>
         );
       } else TwitterBlock = null;
       if (ifAttribute(contact[0].blockstackId)) {
         BlockstackBlock = (
-          <div>
+          <div className="mt2 inline-flex justify-center items-center">
             <img src={BlockstackLogo} alt="blockstack" className="w1" />
             <span className="ml2">{contact[0].blockstackId}</span>
           </div>
@@ -138,6 +135,7 @@ class mySingleContactPage extends Component {
                   <div className="tl">
                     <h2>Social</h2>
                     {TwitterBlock}
+                    <br />
                     {BlockstackBlock}
                   </div>
                 </div>
