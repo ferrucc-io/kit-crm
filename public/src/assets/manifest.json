@@ -1,9 +1,9 @@
 {
   "name": "KIT CRM",
-  "start_url": "https://kit.now.sh",
+  "start_url": "https://kit.st",
   "description": "A CRM for your contacts built on Blockstack",
   "icons": [{
-    "src": "https://kit.now.sh",
+    "src": "https://kit.st",
     "sizes": "192x192",
     "type": "image/png"
   }]
