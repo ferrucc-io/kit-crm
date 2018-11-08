@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 const DefaultButton = styled.button`
+  display: inline-flex;
   text-transform: uppercase;
   font-size: 12px;
   border-radius: 5px;
   user-select: none;
   align-items: center;
   font-weight: 200;
-  width: 130px;
+  width: 150px;
   align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;

@@ -35,7 +35,19 @@ export default class SignIn extends Component {
             Sign In
           </DefaultButton>
           <DefaultButton className="f6 link ph3 pv2 mb2 dib gray bg-transparent ml2">
-            <div className="dib">Learn More →</div>
+            <div>Learn More </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#999"
+                fillRule="evenodd"
+                d="M14.948 11.998l.052.052L9.05 18 8 16.95l4.955-4.955L8 7.055 9.037 6 15 11.945l-.052.053z"
+              />
+            </svg>
           </DefaultButton>
         </p>
         <GlobalStyle />
