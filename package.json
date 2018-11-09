@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "start": "npm run build && cd public/build && now",
+    "start": "npm run build && cd public/build && now --public",
     "build": "webpack -p"
   },
   "repository": {
