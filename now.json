@@ -1,8 +1,5 @@
 {
     "name": "kit",
-    "version": 2,
-    "alias": ["kit.st"],
-    "builds": [
-        { "src": "*.js", "use": "@now/node" }
-    ]
+    "version": 1,
+    "alias": ["kit.st"]
 }
