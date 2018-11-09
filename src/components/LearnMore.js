@@ -1,6 +1,7 @@
 import React from 'react';
 import Floating from './styles/Floating';
 import CRMIcons from '../assets/keepintouchicons.png';
+import CRMIcons2 from '../assets/iconstwokit.png';
 
 export default function LearnMore() {
   return (
@@ -15,6 +16,7 @@ export default function LearnMore() {
         </p>
       </div>
       <div>
+        <Floating src={CRMIcons2} className="mw-100 w-70-m w-40-l" />
         <h1>Own your data</h1>
         <p>
           Imagine if all your data from the apps you use stayed on your own
