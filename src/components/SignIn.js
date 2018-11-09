@@ -36,7 +36,7 @@ export default class SignIn extends Component {
       <div className="landing">
         <div className="mb4 pt4">
           <img src={KitLogo} alt="Kit Logo" />
-          <h1 className="f1 mb0">KIT CRM</h1>
+          <h1 className="f1 mb0">KIT</h1>
           <h2 className="mt0 f4">Keep In Touch, your personal CRM</h2>
         </div>
         <p>
@@ -53,18 +53,35 @@ export default class SignIn extends Component {
             onClick={() => this.showWhy(event)}
           >
             <div>Learn More </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="#999"
-                fillRule="evenodd"
-                d="M14.948 11.998l.052.052L9.05 18 8 16.95l4.955-4.955L8 7.055 9.037 6 15 11.945l-.052.053z"
-              />
-            </svg>
+            {this.state.showWhy ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="rotate-270"
+              >
+                <path
+                  fill="#999"
+                  fillRule="evenodd"
+                  d="M14.948 11.998l.052.052L9.05 18 8 16.95l4.955-4.955L8 7.055 9.037 6 15 11.945l-.052.053z"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="rotate-90"
+              >
+                <path
+                  fill="#999"
+                  fillRule="evenodd"
+                  d="M14.948 11.998l.052.052L9.05 18 8 16.95l4.955-4.955L8 7.055 9.037 6 15 11.945l-.052.053z"
+                />
+              </svg>
+            )}
           </DefaultButton>
         </p>
         {this.state.showWhy ? <LearnMore /> : null}

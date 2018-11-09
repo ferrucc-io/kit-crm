@@ -17,18 +17,26 @@ export default function LearnMore() {
       </div>
       <div>
         <Floating src={CRMIcons2} className="mw-100 w-70-m w-40-l" />
-        <h1>Own your data</h1>
+        <h1>Keep your data on your Network</h1>
+        <p>Imagine if you could audit the code the apps you use.</p>
+        <p>And all your data from the apps you use stayed on your own cloud.</p>
         <p>
-          Imagine if all your data from the apps you use stayed on your own
-          cloud.
+          We are exactly this,{' '}
+          <a
+            href="https://github.com/ferrucc-io/kit-crm"
+            className="black b
+            no-underline bg-light-yellow pv1 ph1 hover-bg-yellow"
+          >
+            Open Source
+          </a>{' '}
+          and you keep your data when using Kit.{' '}
         </p>
-        <p>This is exactly where your data lives when using Kit. </p>
         <span className="b">Don't have your own server?</span>
         <p>
           No problem{' '}
           <a
             href="https://blockstack.org"
-            className="black b no-underline bg-light-yellow pv1 ph2 hover-bg-yellow"
+            className="black b no-underline bg-light-yellow pv1 ph1 hover-bg-yellow"
           >
             Blockstack
           </a>{' '}
