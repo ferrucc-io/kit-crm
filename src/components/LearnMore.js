@@ -1,9 +1,12 @@
 import React from 'react';
+import Floating from './styles/Floating';
+import CRMIcons from '../assets/keepintouchicons.png';
 
 export default function LearnMore() {
   return (
-    <div>
+    <div className="pa3">
       <div>
+        <Floating src={CRMIcons} className="mw-100 w-70-m w-40-l" />
         <h1>Keep in touch with your Network</h1>
         <p>We all have a hard time keeping in touch with the people we meet.</p>
         <p>
