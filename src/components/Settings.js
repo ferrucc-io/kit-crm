@@ -41,7 +41,7 @@ export default class Settings extends Component {
     const rows = this.state.contacts.map(c => Object.values(c).join(',')).join('\n')
     const csv = `${columns}\n${rows}`;
     const url = await putFile('contacts.csv', csv, { encrypt: false });
-    window.open(url, '_blank')
+    window.open(url, '_target')
   }
 
   render() {
