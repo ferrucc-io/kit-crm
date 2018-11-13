@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import { Redirect } from 'react-router';
 
 export default class AddContact extends Component {
   state = {
@@ -38,10 +39,12 @@ export default class AddContact extends Component {
 
   handleNewContactSubmit(event) {
     event.preventDefault();
-    this.saveNewContact();
+    this.saveNewContact(() => {
+      this.setState({saved: true});
+    });
   }
 
-  saveNewContact() {
+  saveNewContact(cb) {
     const { contacts } = this.state;
     const newContact = {
       id: Date.now(),
@@ -60,9 +63,8 @@ export default class AddContact extends Component {
 
     contacts.unshift(newContact);
     const options = { encrypt: false };
-    putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
-    toast(`Just added ${this.state.name} to your contacts`, {
-      className: 'toast-notification',
+    putFile('contacts.json', JSON.stringify(contacts), options).then(() => {
+      cb()
     });
     this.setState({
       country: '',
@@ -95,6 +97,10 @@ export default class AddContact extends Component {
   render() {
     const loading = false;
     const error = false;
+    if(this.state.saved) {
+      return <Redirect to="/"/>
+    }
+
     return !isSignInPending() ? (
       <div>
         <Nav />
