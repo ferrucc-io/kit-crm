@@ -82,7 +82,7 @@ class EditContactPage extends Component {
     contacts.unshift(newContact);
     const options = { encrypt: false };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
-    toast(`Just edited ${this.state.name} to your contacts`, {
+    toast(`Just edited ${this.state.name}`, {
       className: 'toast-notification',
     });
   }
