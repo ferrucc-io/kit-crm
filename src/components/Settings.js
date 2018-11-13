@@ -65,7 +65,7 @@ export default class Settings extends Component {
           onClick={() => {
             this.deleteAllContacts();
           }}
-          className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
+          className="pointer f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
         >
           Delete all Contacts
         </a>

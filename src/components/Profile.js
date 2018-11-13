@@ -66,7 +66,7 @@ export default class Profile extends Component {
             </p>
             <p className="lead">
               <a
-                className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black mr2"
+                className="pointer f6 link dim ph2 pv1 mb2 dib white bg-black b--black mr2"
                 id="signout-button"
                 onClick={handleSignOut.bind(this)}
               >

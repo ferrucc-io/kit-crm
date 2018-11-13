@@ -149,7 +149,7 @@ class mySingleContactPage extends Component {
                 ✏️️️ Edit Contact
               </a>
               <a
-                className="link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white"
+                className="pointer link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white"
                 onClick={() => {
                   this.deleteContact();
                 }}
