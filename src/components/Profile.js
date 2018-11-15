@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import SingleContact from './SingleContact';
+import ContactBubble from './ContactBubble';
 
 export default class Profile extends Component {
   state = {
@@ -81,7 +82,13 @@ export default class Profile extends Component {
             </p>
           </div>
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
-            <h1>Your Contacts</h1>
+            <h1>Contact Today</h1>
+            <div className="w-100 fl db">
+              {contacts.map(contact => (
+                <ContactBubble contact={contact} key={contact.id} />
+              ))}
+            </div>
+            <h1 className="mt6">Your Contacts</h1>
             {contacts.map(contact => (
               <SingleContact contact={contact} key={contact.id} />
             ))}
