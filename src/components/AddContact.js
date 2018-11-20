@@ -22,6 +22,7 @@ export default class AddContact extends Component {
     contacts: [],
     sex: '',
     blockstackId: '',
+    priority: 'A',
   };
 
   componentWillMount() {
@@ -127,6 +128,7 @@ export default class AddContact extends Component {
                 placeholder="Name.."
                 value={this.state.name}
                 onChange={this.handleChange}
+                required
               />
             </label>
           </fieldset>

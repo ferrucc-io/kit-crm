@@ -5,6 +5,7 @@ import Nav from './Nav';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import SingleContact from './SingleContact';
 import ContactBubble from './ContactBubble';
+import moment from 'moment';
 
 export default class Profile extends Component {
   state = {
@@ -84,9 +85,19 @@ export default class Profile extends Component {
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
             <h1>Contact Today</h1>
             <div className="w-100 fl db">
-              {contacts.map(contact => (
-                <ContactBubble contact={contact} key={contact.id} />
-              ))}
+              {contacts.map(contact => {
+                if (
+                  contact.contactDate === moment().format('l') ||
+                  moment().isAfter(moment(contact.contactDate, 'MM/DD/YYYY'))
+                ) {
+                  return <ContactBubble contact={contact} key={contact.id} />;
+                }
+                return (
+                  <div>
+                    You don't have to keep in touch with anyone today :)
+                  </div>
+                );
+              })}
             </div>
             <h1 className="mt6">Your Contacts</h1>
             {contacts.map(contact => (
