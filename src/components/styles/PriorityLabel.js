@@ -18,7 +18,7 @@ const PriorityLabel = styled.span`
     return 'red';
   }}
   color: white;
-  padding: 0 10px;
+  padding: ${props => (props.small ? '0 5px;' : '0px 10px;')};
 `;
 
 export default PriorityLabel;
