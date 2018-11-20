@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { isSignInPending, putFile, getFile } from 'blockstack';
 import { ToastContainer, toast } from 'react-toastify';
+import { Redirect } from 'react-router';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
-import { Redirect } from 'react-router';
+import nextContactDate from './util/nextContactDate';
 
 export default class AddContact extends Component {
   state = {
@@ -46,6 +47,7 @@ export default class AddContact extends Component {
 
   saveNewContact(cb) {
     const { contacts } = this.state;
+    const contactDate = nextContactDate(this.state.priority);
     const newContact = {
       id: Date.now(),
       created_at: Date.now(),
@@ -60,6 +62,7 @@ export default class AddContact extends Component {
       blockstackId: this.state.blockstackId,
       birthDate: this.state.birthDate,
       priority: this.state.priority,
+      contactDate,
     };
 
     contacts.unshift(newContact);
