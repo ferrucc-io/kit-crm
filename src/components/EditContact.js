@@ -52,6 +52,7 @@ class EditContactPage extends Component {
         region: contact[0].region,
         sex: contact[0].sex,
         blockstackId: contact[0].blockstackId,
+        priority: contact[0].priority,
       });
     });
   }
@@ -75,6 +76,7 @@ class EditContactPage extends Component {
       sex: this.state.sex,
       blockstackId: this.state.blockstackId,
       birthDate: this.state.birthDate,
+      priority: this.state.priority,
     };
     // delete the contact with the same ID as the edited one
     contacts = contacts.filter(contact => contact.id !== newContact.id);
@@ -139,6 +141,23 @@ class EditContactPage extends Component {
                 value={this.state.lastName}
                 onChange={this.handleChange}
               />
+            </label>
+          </fieldset>
+          <fieldset>
+            <label htmlFor="priority">
+              Contact Frequency
+              <select
+                type="text"
+                id="priority"
+                name="priority"
+                value={this.state.priority}
+                onChange={this.handleChange}
+              >
+                <option value="A">A - Every two weeks</option>
+                <option value="B">B - Every month</option>
+                <option value="C">C - Every three months</option>
+                <option value="D">D - Every year</option>
+              </select>
             </label>
           </fieldset>
           <fieldset>

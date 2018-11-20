@@ -40,7 +40,7 @@ export default class AddContact extends Component {
   handleNewContactSubmit(event) {
     event.preventDefault();
     this.saveNewContact(() => {
-      this.setState({saved: true});
+      this.setState({ saved: true });
     });
   }
 
@@ -59,12 +59,13 @@ export default class AddContact extends Component {
       sex: this.state.sex,
       blockstackId: this.state.blockstackId,
       birthDate: this.state.birthDate,
+      priority: this.state.priority,
     };
 
     contacts.unshift(newContact);
     const options = { encrypt: false };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {
-      cb()
+      cb();
     });
     this.setState({
       country: '',
@@ -77,6 +78,7 @@ export default class AddContact extends Component {
       birthDate: '',
       sex: '',
       blockstackId: '',
+      priority: '',
     });
   }
 
@@ -97,8 +99,8 @@ export default class AddContact extends Component {
   render() {
     const loading = false;
     const error = false;
-    if(this.state.saved) {
-      return <Redirect to="/"/>
+    if (this.state.saved) {
+      return <Redirect to="/" />;
     }
 
     return !isSignInPending() ? (
@@ -138,6 +140,24 @@ export default class AddContact extends Component {
               />
             </label>
           </fieldset>
+          <fieldset>
+            <label htmlFor="priority">
+              Contact Frequency
+              <select
+                type="text"
+                id="priority"
+                name="priority"
+                value={this.state.priority}
+                onChange={this.handleChange}
+              >
+                <option value="A">A - Every two weeks</option>
+                <option value="B">B - Every month</option>
+                <option value="C">C - Every three months</option>
+                <option value="D">D - Every year</option>
+              </select>
+            </label>
+          </fieldset>
+
           <fieldset>
             <label htmlFor="email">
               Email

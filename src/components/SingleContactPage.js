@@ -5,6 +5,7 @@ import BlockstackLogo from '../assets/blockstack-icon.svg';
 import findObjectBy from './util/findObjectBy';
 import ifAttribute from './util/ifAttribute';
 import Nav from './Nav';
+import PriorityLabel from './styles/PriorityLabel';
 
 class mySingleContactPage extends Component {
   state = { contact: [], contacts: [] };
@@ -127,7 +128,10 @@ class mySingleContactPage extends Component {
                 </div>
                 <div className="w-80 fl">
                   <h1 className="f2 f1-ns">
-                    {contact.name} {contact.lastName}
+                    {contact.name} {contact.lastName}{' '}
+                    <PriorityLabel priority={contact.priority}>
+                      {contact.priority}
+                    </PriorityLabel>
                   </h1>
                 </div>
                 <div className="center w-40 pt6">
