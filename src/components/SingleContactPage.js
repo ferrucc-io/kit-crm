@@ -44,6 +44,7 @@ class mySingleContactPage extends Component {
   render() {
     const { contact } = this.state;
     let UserCountryBlock;
+    let SocialBlock = null;
     let EmailBlock;
     let BirthDateBlock;
     let PhoneNumberBlock;
@@ -89,6 +90,7 @@ class mySingleContactPage extends Component {
         ifAttribute(contact[0].twitterHandle) ||
         ifAttribute(contact[0].blockstackId)
       ) {
+        SocialBlock = <h2>Social</h2>;
         if (ifAttribute(contact[0].twitterHandle)) {
           TwitterBlock = (
             <a
@@ -142,7 +144,7 @@ class mySingleContactPage extends Component {
                     {UserCountryBlock}
                   </div>
                   <div className="tl">
-                    <h2>Social</h2>
+                    {SocialBlock}
                     {TwitterBlock}
                     <br />
                     {BlockstackBlock}
