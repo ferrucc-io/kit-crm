@@ -48,15 +48,15 @@ export default class Profile extends Component {
       <div>
         <Nav />
         <div className="mw9 center ph3 cf">
-          <div className="w-100 w-25-ns fl pa2" id="section-2">
-            <div className="">
+          <div className="w-100 w-25-ns fl pa2 dn dib-m dib-l" id="section-2">
+            <div>
               <img
                 src={
                   person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
                 }
                 className="h3 w3 br-100"
                 id="avatar-image"
-                alt="Avatar Image"
+                alt=""
               />
             </div>
             <p className="f4">
