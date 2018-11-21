@@ -55,7 +55,8 @@ export default class Settings extends Component {
         <h1>Manage Contacts</h1>
         <h3>Import Contacts</h3>
         <a className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black">
-          Import from CSV
+          <input type="file" name="fileupload" />
+          <label htmlFor="fileupload"> Import from CSV</label>
         </a>
         <h3>Export Contacts</h3>
         <a
