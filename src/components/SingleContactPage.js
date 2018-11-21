@@ -121,22 +121,22 @@ class mySingleContactPage extends Component {
           <div>
             <div className="w-100 w-70-l center">
               <div className="">
-                <div className="w-20 fl">
+                <div className="w-100 w-20-ns center fl-ns">
                   <img
                     src={`https://avatars.io/twitter/${contact.twitterHandle}`}
-                    className="fl br-100 ml3 mt0-l"
+                    className="center fl-ns br-100  ml3-ns mt0-l"
                     alt=""
                   />
                 </div>
-                <div className="w-80 fl">
-                  <h1 className="f2 f1-ns">
+                <div className="w-100 w-80-ns center fl-ns">
+                  <h1 className="f3 f1-ns">
                     {contact.name} {contact.lastName}{' '}
                     <PriorityLabel priority={contact.priority}>
                       {contact.priority}
                     </PriorityLabel>
                   </h1>
                 </div>
-                <div className="center w-40 pt6">
+                <div className="center w-80 w-40-ns pt6-ns">
                   <div className="tl">
                     {PhoneNumberBlock}
                     {EmailBlock}
@@ -152,7 +152,7 @@ class mySingleContactPage extends Component {
                 </div>
               </div>
             </div>
-            <div className="mt3 right tr pr4">
+            <div className="mt3 right-ns tr pr4">
               <a
                 href={`/edit-contact?id=${contact.id}`}
                 className="link dim ba bw1 ph2 pv2 mb2 dib no-underline black mr2"
