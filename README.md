@@ -5,6 +5,8 @@
 This app isn't ready for regular use yet, to try it visit:
 [KIT Demo Deployment](https://kit.st/)
 
+To speed up development donate BTC at: 13q9HF5bxDWLAKsabVG6ZNzVHXKVgDtrLU
+
 To run it locally, follow these steps:
 
 * Clone this repository
