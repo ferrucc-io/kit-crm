@@ -30,7 +30,7 @@ class EditContactPage extends Component {
   }
 
   fetchData() {
-    const options = { decrypt: false };
+    const options = { decrypt: true };
     getFile('contacts.json', options).then(file => {
       const contacts = JSON.parse(file || '[]');
       const contact = findObjectBy(contacts, {
@@ -82,7 +82,7 @@ class EditContactPage extends Component {
     contacts = contacts.filter(contact => contact.id !== newContact.id);
     // add the edited contact to all contacts
     contacts.unshift(newContact);
-    const options = { encrypt: false };
+    const options = { encrypt: true };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
     toast(`Just edited ${this.state.name}`, {
       className: 'toast-notification',

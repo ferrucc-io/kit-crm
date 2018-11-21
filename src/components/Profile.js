@@ -30,7 +30,7 @@ export default class Profile extends Component {
   }
 
   fetchData() {
-    const options = { decrypt: false };
+    const options = { decrypt: true };
     getFile('contacts.json', options).then(file => {
       const contacts = JSON.parse(file || '[]');
       this.setState({

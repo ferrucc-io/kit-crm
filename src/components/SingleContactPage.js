@@ -15,7 +15,7 @@ class mySingleContactPage extends Component {
   }
 
   fetchData() {
-    const options = { decrypt: false };
+    const options = { decrypt: true };
     getFile('contacts.json', options).then(file => {
       const contacts = JSON.parse(file || '[]');
       const contact = findObjectBy(contacts, {
@@ -33,7 +33,7 @@ class mySingleContactPage extends Component {
     const newContactsList = this.state.contacts.filter(
       contact => contact.id !== toDelete
     );
-    const options = { encrypt: false };
+    const options = { encrypt: true };
     putFile('contacts.json', JSON.stringify(newContactsList), options).then(
       () => {
         this.props.history.push('/');
