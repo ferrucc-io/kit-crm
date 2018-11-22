@@ -35,7 +35,6 @@ export default class Settings extends Component {
   componentWillMount() {
     this.setState({
       person: new Person(loadUserData().profile),
-      username: loadUserData().username,
     });
     this.fetchData();
   }
@@ -62,8 +61,9 @@ export default class Settings extends Component {
 
   importContacts(event) {
     event.preventDefault(event);
-    const newJSON = csvToJSON(this.importContact.current.files[0]);
-    console.log(newJSON);
+    const newJSON = this.importContact.current.files[0];
+    const reader = new FileReader(newJSON).readAsText();
+    console.log(reader.result);
   }
 
   async exportContacts() {

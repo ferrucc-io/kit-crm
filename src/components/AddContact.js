@@ -43,7 +43,6 @@ export default class AddContact extends Component {
   componentWillMount() {
     this.setState({
       person: new Person(loadUserData().profile),
-      username: loadUserData().username,
     });
     this.fetchData();
   }
