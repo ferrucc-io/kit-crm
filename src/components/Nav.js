@@ -16,7 +16,7 @@ const Nav = () => (
             alt="KIT CRM"
           />
         </div>
-        <div className="dib right fr" onClick={this.toggleMenu}>
+        <div className="dib right fr">
           <img
             src={profileImage}
             className="dn-ns h2 br-100 align-middle pa3"
