@@ -46,7 +46,7 @@ export default class Profile extends Component {
     const { contacts } = this.state;
     return !isSignInPending() ? (
       <div>
-        <Nav />
+        <Nav logout={handleSignOut.bind(this)} />
         <div className="mw9 center ph3 cf">
           <div className="w-100 w-25-ns fl pa2 dn dib-m dib-l" id="section-2">
             <div>
