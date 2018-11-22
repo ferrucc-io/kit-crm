@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { isSignInPending, putFile, getFile } from 'blockstack';
+import {
+  isSignInPending,
+  putFile,
+  getFile,
+  loadUserData,
+  Person,
+} from 'blockstack';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import findObjectBy from './util/findObjectBy';
@@ -23,9 +29,22 @@ class EditContactPage extends Component {
     contacts: [],
     sex: '',
     blockstackId: '',
+    person: {
+      name() {
+        return 'Anonymous';
+      },
+      avatarUrl() {
+        return avatarFallbackImage;
+      },
+    },
+    username: '',
   };
 
   componentWillMount() {
+    this.setState({
+      person: new Person(loadUserData().profile),
+      username: loadUserData().username,
+    });
     this.fetchData();
   }
 
@@ -104,11 +123,19 @@ class EditContactPage extends Component {
   };
 
   render() {
+    const { contact } = this.state;
+    const { handleSignOut } = this.props;
+    const { person } = this.state;
     const loading = false;
     const error = false;
     return !isSignInPending() ? (
       <div>
-        <Nav />
+        <Nav
+          profileImage={
+            person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
+          }
+          logout={handleSignOut.bind(this)}
+        />
         <h1>Edit Contact</h1>
         <Form
           onSubmit={async e => {

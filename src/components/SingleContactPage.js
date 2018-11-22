@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { isSignInPending, getFile, putFile } from 'blockstack';
+import {
+  isSignInPending,
+  loadUserData,
+  Person,
+  getFile,
+  putFile,
+} from 'blockstack';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
 import findObjectBy from './util/findObjectBy';
 import ifAttribute from './util/ifAttribute';
@@ -8,9 +14,25 @@ import Nav from './Nav';
 import PriorityLabel from './styles/PriorityLabel';
 
 class mySingleContactPage extends Component {
-  state = { contact: [], contacts: [] };
+  state = {
+    contact: [],
+    contacts: [],
+    person: {
+      name() {
+        return 'Anonymous';
+      },
+      avatarUrl() {
+        return avatarFallbackImage;
+      },
+    },
+    username: '',
+  };
 
   componentWillMount() {
+    this.setState({
+      person: new Person(loadUserData().profile),
+      username: loadUserData().username,
+    });
     this.fetchData();
   }
 
@@ -43,6 +65,8 @@ class mySingleContactPage extends Component {
 
   render() {
     const { contact } = this.state;
+    const { handleSignOut } = this.props;
+    const { person } = this.state;
     let UserCountryBlock;
     let SocialBlock = null;
     let EmailBlock;
@@ -116,7 +140,12 @@ class mySingleContactPage extends Component {
     }
     return !isSignInPending() ? (
       <div>
-        <Nav />
+        <Nav
+          profileImage={
+            person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
+          }
+          logout={handleSignOut.bind(this)}
+        />
         {contact.map(contact => (
           <div>
             <div className="w-100 w-70-l center">
@@ -124,7 +153,7 @@ class mySingleContactPage extends Component {
                 <div className="w-100 w-20-ns center fl-ns">
                   <img
                     src={`https://avatars.io/twitter/${contact.twitterHandle}`}
-                    className="center fl-ns br-100 h4 ml3-ns mt0-l"
+                    className="center fl-ns br-100 h4 ml3-ns mt0-l mt3"
                     alt=""
                   />
                 </div>

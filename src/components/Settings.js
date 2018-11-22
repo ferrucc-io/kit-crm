@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { isSignInPending, putFile, getFile } from 'blockstack';
+import {
+  isSignInPending,
+  putFile,
+  getFile,
+  Person,
+  loadUserData,
+} from 'blockstack';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Nav from './Nav';
@@ -16,9 +22,21 @@ export default class Settings extends Component {
   }
   state = {
     contacts: [],
+    person: {
+      name() {
+        return 'Anonymous';
+      },
+      avatarUrl() {
+        return avatarFallbackImage;
+      },
+    },
   };
 
   componentWillMount() {
+    this.setState({
+      person: new Person(loadUserData().profile),
+      username: loadUserData().username,
+    });
     this.fetchData();
   }
 
@@ -59,9 +77,16 @@ export default class Settings extends Component {
   }
 
   render() {
+    const { handleSignOut } = this.props;
+    const { person } = this.state;
     return !isSignInPending() ? (
       <div>
-        <Nav />
+        <Nav
+          profileImage={
+            person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
+          }
+          logout={handleSignOut.bind(this)}
+        />
         <h1>Manage Contacts</h1>
         <h3>Import Contacts</h3>
         <form onSubmit={this.importContacts}>

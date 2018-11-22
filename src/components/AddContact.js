@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { isSignInPending, putFile, getFile } from 'blockstack';
+import {
+  isSignInPending,
+  putFile,
+  getFile,
+  Person,
+  loadUserData,
+} from 'blockstack';
 import { ToastContainer, toast } from 'react-toastify';
 import { Redirect } from 'react-router';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -23,9 +29,22 @@ export default class AddContact extends Component {
     sex: '',
     blockstackId: '',
     priority: 'A',
+    person: {
+      name() {
+        return 'Anonymous';
+      },
+      avatarUrl() {
+        return avatarFallbackImage;
+      },
+    },
+    username: '',
   };
 
   componentWillMount() {
+    this.setState({
+      person: new Person(loadUserData().profile),
+      username: loadUserData().username,
+    });
     this.fetchData();
   }
 
@@ -101,6 +120,8 @@ export default class AddContact extends Component {
   };
 
   render() {
+    const { handleSignOut } = this.props;
+    const { person } = this.state;
     const loading = false;
     const error = false;
     if (this.state.saved) {
@@ -109,7 +130,12 @@ export default class AddContact extends Component {
 
     return !isSignInPending() ? (
       <div>
-        <Nav />
+        <Nav
+          profileImage={
+            person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
+          }
+          logout={handleSignOut.bind(this)}
+        />
         <h1>Add Contact</h1>
         <Form
           onSubmit={async e => {
