@@ -124,7 +124,7 @@ class mySingleContactPage extends Component {
                 <div className="w-100 w-20-ns center fl-ns">
                   <img
                     src={`https://avatars.io/twitter/${contact.twitterHandle}`}
-                    className="center fl-ns br-100  ml3-ns mt0-l"
+                    className="center fl-ns br-100 h4 ml3-ns mt0-l"
                     alt=""
                   />
                 </div>

@@ -6,10 +6,12 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import csvToJSON from './util/csvToJSON';
 
 export default class Settings extends Component {
   constructor(props) {
     super(props);
+    this.importContacts = this.importContacts.bind(this);
     this.importContact = React.createRef();
   }
   state = {
@@ -40,6 +42,12 @@ export default class Settings extends Component {
     });
   }
 
+  importContacts(event) {
+    event.preventDefault(event);
+    const newJSON = csvToJSON(this.importContact.current.files[0]);
+    console.log(newJSON);
+  }
+
   async exportContacts() {
     const columns = Object.keys(this.state.contacts[0]).join(',');
     const rows = this.state.contacts
@@ -50,17 +58,13 @@ export default class Settings extends Component {
     window.open(url, '_target');
   }
 
-  const importContacts = (e) => {
-    console.log(e);
-  }
-
   render() {
     return !isSignInPending() ? (
       <div>
         <Nav />
         <h1>Manage Contacts</h1>
         <h3>Import Contacts</h3>
-        <form onSubmit={async value => await this.importContacts(value)}>
+        <form onSubmit={this.importContacts}>
           <label htmlFor="fileupload" className="black b f5 db">
             Import from CSV
           </label>
