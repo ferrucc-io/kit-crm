@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.png';
 import LogoMobile from '../assets/logo-mobile.png';
-import profileImage from '../assets/avatar-placeholder.png';
 import Menu from './Menu';
 
 export default class Nav extends Component {
@@ -35,7 +34,7 @@ export default class Nav extends Component {
             </div>
             <div className="dib right fr" onClick={this.toggleMenu}>
               <img
-                src={profileImage}
+                src={this.props.profileImage}
                 className="dn-ns h2 br-100 align-middle pa3"
                 alt=""
               />

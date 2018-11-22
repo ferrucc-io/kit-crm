@@ -6,6 +6,7 @@ import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import SingleContact from './SingleContact';
 import ContactBubble from './ContactBubble';
 import moment from 'moment';
+import ProfileDesktop from './ProfileDesktop';
 
 export default class Profile extends Component {
   state = {
@@ -46,42 +47,21 @@ export default class Profile extends Component {
     const { contacts } = this.state;
     return !isSignInPending() ? (
       <div>
-        <Nav logout={handleSignOut.bind(this)} />
+        <Nav
+          profileImage={
+            person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
+          }
+          logout={handleSignOut.bind(this)}
+        />
         <div className="mw9 center ph3 cf">
-          <div className="w-100 w-25-ns fl pa2 dn dib-m dib-l" id="section-2">
-            <div>
-              <img
-                src={
-                  person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
-                }
-                className="h3 w3 br-100"
-                id="avatar-image"
-                alt=""
-              />
-            </div>
-            <p className="f4">
-              <span id="heading-name">
-                {person.name() ? person.name() : 'Nameless Person'}
-              </span>
-              <br />
-              <span className="f6 gray">{username}</span>
-            </p>
-            <p className="lead">
-              <a
-                className="pointer f6 link dim ph2 pv1 mb2 dib white bg-black b--black mr2"
-                id="signout-button"
-                onClick={handleSignOut.bind(this)}
-              >
-                Logout
-              </a>
-              <Link
-                to="/settings"
-                className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
-              >
-                Settings
-              </Link>
-            </p>
-          </div>
+          <ProfileDesktop
+            logout={handleSignOut.bind(this)}
+            profileImage={
+              person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage
+            }
+            name={person.name() ? person.name() : 'Nameless Person'}
+            username={username}
+          />
           <div className="w-100 w-75-ns fl ph4 tl" id="section-2">
             <h1>Contact Today</h1>
             <div className="w-100 fl db">

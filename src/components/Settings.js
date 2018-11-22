@@ -8,6 +8,10 @@ import Form from './styles/Form';
 import Error from './ErrorMessage';
 
 export default class Settings extends Component {
+  constructor(props) {
+    super(props);
+    this.importContact = React.createRef();
+  }
   state = {
     contacts: [],
   };
@@ -46,18 +50,32 @@ export default class Settings extends Component {
     window.open(url, '_target');
   }
 
+  const importContacts = (e) => {
+    console.log(e);
+  }
+
   render() {
-    const loading = false;
-    const error = false;
     return !isSignInPending() ? (
       <div>
         <Nav />
         <h1>Manage Contacts</h1>
         <h3>Import Contacts</h3>
-        <a className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black">
-          <input type="file" name="fileupload" />
-          <label htmlFor="fileupload"> Import from CSV</label>
-        </a>
+        <form onSubmit={async value => await this.importContacts(value)}>
+          <label htmlFor="fileupload" className="black b f5 db">
+            Import from CSV
+          </label>
+          <input
+            type="file"
+            name="fileupload"
+            className="mt3 db center"
+            ref={this.importContact}
+          />
+          <input
+            type="submit"
+            value="Import"
+            className="mt3 db center f6 link dim ph2 pv1 mb2 dib white bg-black b--black pointer"
+          />
+        </form>
         <h3>Export Contacts</h3>
         <a
           className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black pointer"

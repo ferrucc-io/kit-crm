@@ -1,18 +1,20 @@
 # KIT - Keep in Touch
-## [Roadmap](https://www.notion.so/Roadmap-a1f5ad4f560045488e579cb3ccbd6f6f)
-### Building a Personal CRM on Blockstack
+### A Personal CRM on Blockstack
 
-This app isn't ready for regular use yet, to try it visit:
+This app isn't ready for regular use yet, but you can try it visiting:
 [KIT Demo Deployment](https://kit.st/)
 
-To speed up development donate BTC at: 13q9HF5bxDWLAKsabVG6ZNzVHXKVgDtrLU
+Take in mind there might be some breaking changes in the next months, so make sure you regularly export your data!
 
-To run it locally, follow these steps:
+## Here is our [Roadmap](https://www.notion.so/Roadmap-a1f5ad4f560045488e579cb3ccbd6f6f)
+
+To speed up development you can donate BTC at: `13q9HF5bxDWLAKsabVG6ZNzVHXKVgDtrLU`
+
+To run the app locally, follow these steps:
 
 * Clone this repository
 * Move to the `/public` directory `cd public`
 * Install the app `npm install`
 * Run it `npm run dev`
-
 
 Want to help? PRs are welcome :)
