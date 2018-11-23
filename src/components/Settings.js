@@ -62,8 +62,8 @@ export default class Settings extends Component {
   importContacts(event) {
     event.preventDefault(event);
     const newJSON = this.importContact.current.files[0];
-    const reader = new FileReader(newJSON).readAsText();
-    console.log(reader.result);
+    const reader = new FileReader(newJSON);
+    console.log(reader.readAsText());
   }
 
   async exportContacts() {
