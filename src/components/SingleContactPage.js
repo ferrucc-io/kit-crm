@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import {
   isSignInPending,
   loadUserData,
@@ -182,12 +182,15 @@ class mySingleContactPage extends Component {
               </div>
             </div>
             <div className="mt3 right-ns tr pr4">
-              <a
-                href={`/edit-contact?id=${contact.id}`}
+              <Link
+                to={{
+                  pathname: '/edit-contact',
+                  search: `?id=${contact.id}`,
+                }}
                 className="link dim ba bw1 ph2 pv2 mb2 dib no-underline black mr2"
               >
                 ✏️️️ Edit Contact
-              </a>
+              </Link>
               <a
                 className="pointer link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white"
                 onClick={() => {
