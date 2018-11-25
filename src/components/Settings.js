@@ -62,8 +62,25 @@ export default class Settings extends Component {
   importContacts(event) {
     event.preventDefault(event);
     const newJSON = this.importContact.current.files[0];
-    const reader = new FileReader(newJSON);
-    console.log(reader.readAsText());
+    const p = new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader);
+      };
+      reader.onerror = function(e) {
+        reject(new Error(`Error reading${newJSON.name}`));
+      };
+      reader.readAsText(newJSON);
+    });
+    p.then(reader => {
+      const newContactList = csvToJSON(reader.result);
+      const options = { encrypt: true };
+      putFile('contacts.json', newContactList, options).then(() => {
+        toast(`Contacts imported successfully 🚀`, {
+          className: 'toast-notification',
+        });
+      });
+    });
   }
 
   async exportContacts() {
