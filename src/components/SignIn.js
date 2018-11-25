@@ -36,8 +36,8 @@ export default class SignIn extends Component {
       <div className="landing">
         <div className="mb4 pt4">
           <img src={KitLogo} alt="Kit Logo" />
-          <h1 className="f1 mb0">KIT</h1>
-          <h2 className="mt0 f4">Keep In Touch, your personal CRM</h2>
+          <h1 className="f1 mb0">Keep In Touch</h1>
+          <h2 className="mt0 f4">Effortlessly grow your Network</h2>
         </div>
         <p>
           <DefaultButton
