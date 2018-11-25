@@ -13,22 +13,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 export default class SignIn extends Component {
-  state = {
-    showWhy: false,
-  };
-
-  showWhy(event) {
-    event.preventDefault();
-    // eslint-disable-next-line no-unused-expressions
-    this.state.showWhy
-      ? this.setState({
-          showWhy: false,
-        })
-      : this.setState({
-          showWhy: true,
-        });
-  }
-
   render() {
     const { handleSignIn } = this.props;
 
@@ -41,58 +25,15 @@ export default class SignIn extends Component {
         </div>
         <p>
           <DefaultButton
-            className="f6 ph3 pv2 mb2 dib white bg-black b--black"
+            className="f6 ph3 pv2 mb2 dib white bg-black b--black pointer"
             id="signin-button"
             onClick={handleSignIn.bind(this)}
             primary
           >
             Sign In
           </DefaultButton>
-          {this.state.showWhy ? (
-            <DefaultButton
-              className="f6 link ph3 pv2 mb2 dib gray bg-transparent ml2"
-              onClick={() => this.showWhy(event)}
-            >
-              <div>Learn Less </div>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="rotate-270"
-              >
-                <path
-                  fill="#999"
-                  fillRule="evenodd"
-                  d="M14.948 11.998l.052.052L9.05 18 8 16.95l4.955-4.955L8 7.055 9.037 6 15 11.945l-.052.053z"
-                />
-              </svg>
-            </DefaultButton>
-          ) : (
-            <DefaultButton
-              className="f6 link ph3 pv2 mb2 dib gray bg-transparent ml2"
-              onClick={() => this.showWhy(event)}
-            >
-              <div>Learn More </div>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="rotate-90"
-              >
-                <path
-                  fill="#999"
-                  fillRule="evenodd"
-                  d="M14.948 11.998l.052.052L9.05 18 8 16.95l4.955-4.955L8 7.055 9.037 6 15 11.945l-.052.053z"
-                />
-              </svg>
-            </DefaultButton>
-          )}
         </p>
-        {this.state.showWhy ? <LearnMore /> : null}
+        <LearnMore />
         <GlobalStyle />
       </div>
     );

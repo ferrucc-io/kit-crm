@@ -29,7 +29,7 @@ export default function LearnMore() {
           your own data.
         </p>
         <p>No setup required.</p>
-        <p>
+        <p className="lh-copy">
           You don't have to trust me, you can verify yourself checking our{' '}
           <a
             href="https://github.com/ferrucc-io/kit-crm"
