@@ -8,6 +8,7 @@ import {
   putFile,
 } from 'blockstack';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
+import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import findObjectBy from './util/findObjectBy';
 import ifAttribute from './util/ifAttribute';
 import Nav from './Nav';

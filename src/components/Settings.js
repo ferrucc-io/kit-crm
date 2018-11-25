@@ -10,7 +10,7 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Nav from './Nav';
-import Form from './styles/Form';
+import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import Error from './ErrorMessage';
 import csvToJSON from './util/csvToJSON';
 

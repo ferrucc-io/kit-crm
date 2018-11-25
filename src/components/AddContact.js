@@ -10,6 +10,7 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import { Redirect } from 'react-router';
 import 'react-toastify/dist/ReactToastify.min.css';
+import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';

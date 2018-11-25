@@ -11,6 +11,7 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import findObjectBy from './util/findObjectBy';
+import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import Nav from './Nav';
 import Form from './styles/Form';
 import Error from './ErrorMessage';

@@ -97,6 +97,13 @@ export default class Main extends Component {
             />
           </Switch>
         )}
+        <footer>
+          <div className="tc mt3">
+            <p className="f6 dib ph2 mid-gray dib" id="updates">
+              Updates
+            </p>
+          </div>
+        </footer>
       </main>
     );
   }
