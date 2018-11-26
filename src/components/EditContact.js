@@ -30,6 +30,8 @@ class EditContactPage extends Component {
     contacts: [],
     sex: '',
     blockstackId: '',
+    contactDate: '',
+    created_at: '',
     person: {
       name() {
         return 'Anonymous';
@@ -72,6 +74,8 @@ class EditContactPage extends Component {
         region: contact[0].region,
         sex: contact[0].sex,
         blockstackId: contact[0].blockstackId,
+        contactDate: contact[0].contactDate,
+        created_at: contact[0].created_at,
         priority: contact[0].priority,
       });
     });
@@ -97,6 +101,8 @@ class EditContactPage extends Component {
       blockstackId: this.state.blockstackId,
       birthDate: this.state.birthDate,
       priority: this.state.priority,
+      contactDate: this.state.contactDate,
+      created_at: this.state.created_at,
     };
     // delete the contact with the same ID as the edited one
     contacts = contacts.filter(contact => contact.id !== newContact.id);
