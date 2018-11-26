@@ -5,7 +5,7 @@ const floating = keyframes`
     transform: translate(0,0);
 }
 65% {
-    transform: translate(0,10px);
+    transform: translate(0,2px);
 }
 
 100% {

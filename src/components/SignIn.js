@@ -21,7 +21,7 @@ export default class SignIn extends Component {
         <div className="mb4 pt4">
           <img src={KitLogo} alt="Kit Logo" />
           <h1 className="f1 mb0">Keep In Touch</h1>
-          <h2 className="mt0 f4">Effortlessly grow your Network</h2>
+          <h2 className="mt0 f4">Cultivate stronger relationships</h2>
         </div>
         <p>
           <DefaultButton
@@ -30,7 +30,7 @@ export default class SignIn extends Component {
             onClick={handleSignIn.bind(this)}
             primary
           >
-            Sign In
+            Start Now
           </DefaultButton>
         </p>
         <LearnMore />

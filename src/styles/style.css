@@ -1,5 +1,5 @@
 /* Globals */
-html,body{height:100%;background-color:#FFFFFF;}
+html,body{height:100%;background-color:#FFFFFF; overflow-x:hidden; }
 body{color:#000;text-align:center;}
 .hide{display:none;}
 
