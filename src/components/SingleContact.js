@@ -6,7 +6,7 @@ export default class SingleContact extends Component {
   render() {
     const { contact } = this.props;
     return (
-      <div className="db">
+      <div className="db overflow-x-hidden">
         <Link
           to={{
             pathname: '/contact',
