@@ -13,6 +13,7 @@ import findObjectBy from './util/findObjectBy';
 import ifAttribute from './util/ifAttribute';
 import Nav from './Nav';
 import PriorityLabel from './styles/PriorityLabel';
+import checkIn from './util/checkIn';
 
 class mySingleContactPage extends Component {
   state = {
@@ -56,6 +57,25 @@ class mySingleContactPage extends Component {
     const newContactsList = this.state.contacts.filter(
       contact => contact.id !== toDelete
     );
+    const options = { encrypt: true };
+    putFile('contacts.json', JSON.stringify(newContactsList), options).then(
+      () => {
+        this.props.history.push('/');
+      }
+    );
+  }
+
+  checkedIn() {
+    const toDelete = this.state.contact[0].id;
+    console.log('Date was:', this.state.contact[0].contactDate);
+    const newContactsList = this.state.contacts.filter(
+      contact => contact.id !== toDelete
+    );
+    this.state.contact[0].contactDate = checkIn(
+      this.state.contact[0].contactDate,
+      this.state.contact[0].priority
+    );
+    newContactsList.unshift(this.state.contact[0]);
     const options = { encrypt: true };
     putFile('contacts.json', JSON.stringify(newContactsList), options).then(
       () => {
@@ -183,6 +203,14 @@ class mySingleContactPage extends Component {
               </div>
             </div>
             <div className="mt3 right-ns tr pr4">
+              <a
+                className="pointer link dim ba bw1 ph2 pv2 mb2 dib no-underline ba b--black black mr2 "
+                onClick={() => {
+                  this.deleteContact();
+                }}
+              >
+                Delete Contact
+              </a>
               <Link
                 to={{
                   pathname: '/edit-contact',
@@ -192,13 +220,14 @@ class mySingleContactPage extends Component {
               >
                 ✏️️️ Edit Contact
               </Link>
+
               <a
                 className="pointer link dim ba bw1 ph2 pv2 mb2 dib no-underline bg-black b--black white"
                 onClick={() => {
-                  this.deleteContact();
+                  this.checkedIn();
                 }}
               >
-                Delete Contact
+                ✅ Check In
               </a>
             </div>
           </div>
