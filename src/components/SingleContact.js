@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PriorityLabel from './styles/PriorityLabel';
+import PriorityLabel from './PriorityLabel';
 
 export default class SingleContact extends Component {
   render() {
@@ -22,9 +22,7 @@ export default class SingleContact extends Component {
           </div>
           <p className="fl w-80 w-90-ns h3 pl3 f4 fw4 black-80">
             {contact.name} {contact.lastName}{' '}
-            <PriorityLabel priority={contact.priority} small>
-              {contact.priority}
-            </PriorityLabel>
+            <PriorityLabel priority={contact.priority} small />
           </p>
         </Link>
       </div>

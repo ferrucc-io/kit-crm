@@ -12,7 +12,7 @@ import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import findObjectBy from './util/findObjectBy';
 import ifAttribute from './util/ifAttribute';
 import Nav from './Nav';
-import PriorityLabel from './styles/PriorityLabel';
+import PriorityLabel from './PriorityLabel';
 import checkIn from './util/checkIn';
 
 class mySingleContactPage extends Component {
@@ -181,9 +181,7 @@ class mySingleContactPage extends Component {
                 <div className="w-100 w-80-ns center fl-ns">
                   <h1 className="f3 f1-ns">
                     {contact.name} {contact.lastName}{' '}
-                    <PriorityLabel priority={contact.priority}>
-                      {contact.priority}
-                    </PriorityLabel>
+                    <PriorityLabel priority={contact.priority} />
                   </h1>
                 </div>
                 <div className="center w-80 w-40-ns pt6-ns">
