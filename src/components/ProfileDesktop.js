@@ -21,7 +21,7 @@ function ProfileDesktop(props) {
         <div className="w-100">
           <Link
             to="/updates"
-            className="f6 link dim ph3 pv1 mb2 dib white bg-black b--black"
+            className="f6 link dim ph3 pv1 mb2 dib black bg-white ba b--black"
           >
             Updates
           </Link>
@@ -29,14 +29,14 @@ function ProfileDesktop(props) {
         <div className="w-100">
           <Link
             to="/settings"
-            className="f6 link dim ph3 pv1 mb2 dib white bg-black b--black"
+            className="f6 link dim ph3 pv1 mb2 dib black bg-white ba b--black"
           >
             Settings
           </Link>
         </div>
         <div className="w-100">
           <a
-            className="pointer f6 link dim ph3 pv1 mb2 dib white bg-black b--black"
+            className="pointer f6 link dim ph3 pv1 mb2 dib black bg-white ba b--black"
             id="signout-button"
             onClick={props.logout}
           >

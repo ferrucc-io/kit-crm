@@ -8,6 +8,7 @@ import {
   loadUserData,
   Person,
 } from 'blockstack';
+import { Redirect } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import findObjectBy from './util/findObjectBy';
@@ -41,6 +42,7 @@ class EditContactPage extends Component {
       },
     },
     username: '',
+    saved: false,
   };
 
   componentWillMount() {
@@ -110,8 +112,8 @@ class EditContactPage extends Component {
     contacts.unshift(newContact);
     const options = { encrypt: true };
     putFile('contacts.json', JSON.stringify(contacts), options).then(() => {});
-    toast(`Just edited ${this.state.name}`, {
-      className: 'toast-notification',
+    this.setState({
+      saved: true,
     });
   }
 
@@ -135,6 +137,9 @@ class EditContactPage extends Component {
     const { person } = this.state;
     const loading = false;
     const error = false;
+    if (this.state.saved) {
+      return <Redirect to={`/contact?id=${this.state.id}`} />;
+    }
     return !isSignInPending() ? (
       <div>
         <Nav
@@ -298,7 +303,6 @@ class EditContactPage extends Component {
           <button type="submit" className="bg-black">
             Submit
           </button>
-          <ToastContainer closeButton={false} hideProgressBar />
         </Form>
       </div>
     ) : null;

@@ -7,7 +7,7 @@ const Updates = () => (
     <div className="tl ph3 ph5-ns ph7-l">
       <h1>Updates</h1>
       <p>
-        Kit is a solo project made in 🇮🇹 Italy by{' '}
+        Kit is a solo project made in 🇮🇹 Italy by me,{' '}
         <a href="https://twitter.com/0xferruccio" className="black">
           Ferruccio Balestreri
         </a>

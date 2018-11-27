@@ -7,7 +7,6 @@ import {
   Person,
   loadUserData,
 } from 'blockstack';
-import { ToastContainer, toast } from 'react-toastify';
 import { Redirect } from 'react-router';
 import 'react-toastify/dist/ReactToastify.min.css';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
@@ -293,7 +292,6 @@ export default class AddContact extends Component {
           <button type="submit" className="bg-black">
             Submit
           </button>
-          <ToastContainer closeButton={false} hideProgressBar />
         </Form>
       </div>
     ) : null;

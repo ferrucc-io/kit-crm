@@ -18,7 +18,7 @@ export default class NavLoggedOut extends Component {
       <div>
         <nav className="dt w-100 border-box pa3-ns ph5-ns">
           <Link to="/" title="KIT CRM">
-            <img src={Logo} className="dib" alt="KIT CRM" />
+            <img src={Logo} className="dib h3" alt="KIT CRM" />
           </Link>
         </nav>
       </div>

@@ -20,7 +20,7 @@ export default class Nav extends Component {
       <div>
         <nav className="dt w-100 border-box pa3-ns ph5-ns">
           <Link to="/" title="KIT CRM">
-            <img src={Logo} className="dn dib-m dib-l" alt="KIT CRM" />
+            <img src={Logo} className="dn dib-m dib-l h3" alt="KIT CRM" />
           </Link>
           <div className="w-100 border-box">
             <div className="dib fl">

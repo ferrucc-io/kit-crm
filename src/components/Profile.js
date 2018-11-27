@@ -107,7 +107,7 @@ export default class Profile extends Component {
           <div className="fr">
             <Link
               to="/add-contact"
-              className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
+              className="f4 link dim ph3 pv2 mb2 dib white bg-black b--black"
             >
               Add Contact
             </Link>
