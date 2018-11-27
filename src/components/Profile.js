@@ -48,6 +48,8 @@ export default class Profile extends Component {
     const { username } = this.state;
     const { contacts } = this.state;
     let ContactBlock = null;
+    const ContactToday = [];
+    let NoContactTodayBlock = null;
     if (ifAttribute(contacts[0])) {
       ContactBlock = (
         <div className="w-100 w-75-ns fl ph4 tl">
@@ -57,8 +59,23 @@ export default class Profile extends Component {
           ))}
         </div>
       );
+      contacts.map(contact => {
+        if (
+          contact.contactDate === moment().format('l') ||
+          moment().isAfter(moment(contact.contactDate, 'MM/DD/YYYY'))
+        ) {
+          ContactToday.push(contact);
+        }
+      });
     } else {
       ContactBlock = null;
+    }
+    if (ContactToday.length == 0 || ContactToday == null) {
+      NoContactTodayBlock = (
+        <div>
+          <p>You don't have to contact anyone today :)</p>
+        </div>
+      );
     }
     return !isSignInPending() ? (
       <div>
@@ -78,27 +95,12 @@ export default class Profile extends Component {
             username={username}
           />
           <div className="w-100 w-75-ns fl ph4 tl">
-            {() => {
-              let showContactBubbleTitle = false;
-              contacts.map(contact => {
-                if (
-                  contact.contactDate === moment().format('l') ||
-                  moment().isAfter(moment(contact.contactDate, 'MM/DD/YYYY'))
-                ) {
-                  showContactBubbleTitle = true;
-                }
-              });
-              return showContactBubbleTitle ? <h1>Contact Today</h1> : null;
-            }}
+            <h1>Contact Today</h1>
+            {NoContactTodayBlock}
             <div className="w-100 fl db">
-              {contacts.map(contact => {
-                if (
-                  contact.contactDate === moment().format('l') ||
-                  moment().isAfter(moment(contact.contactDate, 'MM/DD/YYYY'))
-                ) {
-                  return <ContactBubble contact={contact} key={contact.id} />;
-                }
-              })}
+              {ContactToday.map(contact => (
+                <ContactBubble contact={contact} key={contact.id} />
+              ))}
             </div>
           </div>
           {ContactBlock}

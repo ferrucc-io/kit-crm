@@ -18,19 +18,31 @@ function ProfileDesktop(props) {
         <span className="f6 gray">{props.username}</span>
       </p>
       <p className="lead">
-        <a
-          className="pointer f6 link dim ph2 pv1 mb2 dib white bg-black b--black mr2"
-          id="signout-button"
-          onClick={props.logout}
-        >
-          Logout
-        </a>
-        <Link
-          to="/settings"
-          className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black"
-        >
-          Settings
-        </Link>
+        <div className="w-100">
+          <Link
+            to="/updates"
+            className="f6 link dim ph3 pv1 mb2 dib white bg-black b--black"
+          >
+            Updates
+          </Link>
+        </div>
+        <div className="w-100">
+          <Link
+            to="/settings"
+            className="f6 link dim ph3 pv1 mb2 dib white bg-black b--black"
+          >
+            Settings
+          </Link>
+        </div>
+        <div className="w-100">
+          <a
+            className="pointer f6 link dim ph3 pv1 mb2 dib white bg-black b--black"
+            id="signout-button"
+            onClick={props.logout}
+          >
+            Logout
+          </a>
+        </div>
       </p>
     </div>
   );

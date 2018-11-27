@@ -10,7 +10,7 @@ import {
 import EditContact from './EditContact';
 import Profile from './Profile';
 import SignIn from './SignIn';
-import About from './About';
+import Updates from './Updates';
 import AddContact from './AddContact';
 import Settings from './Settings';
 import SingleContactPage from './SingleContactPage';
@@ -42,11 +42,12 @@ export default class Main extends Component {
       <main className="sans-serif">
         {!isUserSignedIn() ? (
           <Switch>
+            <Route path="/updates" component={Updates} />
+
             <Route
               path="/contact"
               component={() => <SignIn handleSignIn={this.handleSignIn} />}
             />
-            <Route path="/about" component={About} />
 
             <Route
               path="/add-contact"
@@ -67,7 +68,7 @@ export default class Main extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route path="/about" component={About} />
+            <Route path="/updates" component={Updates} />
 
             <Route
               path="/add-contact"

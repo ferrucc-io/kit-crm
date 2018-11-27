@@ -18,6 +18,11 @@ export default class SignIn extends Component {
 
     return (
       <div className="landing">
+        <div className="mt3">
+          <Link to="/updates" className="f5 fw7 black no-underline dim">
+            📰 Updates
+          </Link>
+        </div>
         <div className="mb4 pt4">
           <img src={KitLogo} alt="Kit Logo" />
           <h1 className="f1 mb0">Keep In Touch</h1>

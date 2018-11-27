@@ -13,8 +13,11 @@ export default function Menu(props) {
       >
         Settings
       </Link>
+      <Link to="/updates" className="db white no-underline b pt3 pb3 tr mr3">
+        📰 Updates
+      </Link>
       <div
-        className="white no-underline b pt3 pb3 tr mr3"
+        className="db bg-white black no-underline b pt3 pb3 w-100 tr pr3"
         onClick={props.logout}
       >
         Logout
