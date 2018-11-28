@@ -13,7 +13,6 @@ To speed up development you can donate BTC at: `13q9HF5bxDWLAKsabVG6ZNzVHXKVgDtr
 To run the app locally, follow these steps:
 
 * Clone this repository
-* Move to the `/public` directory `cd public`
 * Install the app `npm install`
 * Run it `npm run dev`
 
