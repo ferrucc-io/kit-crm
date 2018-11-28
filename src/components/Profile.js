@@ -6,7 +6,7 @@ import Nav from './Nav';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import SingleContact from './SingleContact';
 import ContactBubble from './ContactBubble';
-
+import NoOneLeft from '../assets/no-one-left.png';
 import ifAttribute from './util/ifAttribute';
 import ProfileDesktop from './ProfileDesktop';
 
@@ -72,8 +72,9 @@ export default class Profile extends Component {
     }
     if (ContactToday.length == 0 || ContactToday == null) {
       NoContactTodayBlock = (
-        <div>
-          <p>You don't have to contact anyone today :)</p>
+        <div className="w-100">
+          <img src={NoOneLeft} className="center h4 db" />
+          <p className="center center tc b f4">No pending checkins for today</p>
         </div>
       );
     }
