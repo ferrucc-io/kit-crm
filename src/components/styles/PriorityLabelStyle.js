@@ -48,7 +48,7 @@ const PriorityLabel = styled.span`
   }
 
   :hover span {
-      visibility: visible;
+      visibility: ${props => (props.small ? 'hidden' : 'visible')};
   }
 
   

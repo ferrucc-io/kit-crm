@@ -23,7 +23,7 @@ function PriorityLabel(props) {
     text = `Contact every ${priorityLabel.D}`;
   }
   return (
-    <PriorityLabelStyle>
+    <PriorityLabelStyle priority={props.priority} small={props.small}>
       {props.priority}
       <span>{text}</span>
     </PriorityLabelStyle>
