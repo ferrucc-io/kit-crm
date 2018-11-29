@@ -7,13 +7,14 @@ import {
   getFile,
   putFile,
 } from 'blockstack';
+import moment from 'moment';
 import BlockstackLogo from '../assets/blockstack-icon.svg';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import findObjectBy from './util/findObjectBy';
 import ifAttribute from './util/ifAttribute';
 import Nav from './Nav';
 import PriorityLabel from './PriorityLabel';
-import checkIn from './util/checkIn';
+import nextContactDate from './util/nextContactDate';
 
 class mySingleContactPage extends Component {
   state = {
@@ -67,12 +68,10 @@ class mySingleContactPage extends Component {
 
   checkedIn() {
     const toDelete = this.state.contact[0].id;
-    console.log('Date was:', this.state.contact[0].contactDate);
     const newContactsList = this.state.contacts.filter(
       contact => contact.id !== toDelete
     );
-    this.state.contact[0].contactDate = checkIn(
-      this.state.contact[0].contactDate,
+    this.state.contact[0].contactDate = nextContactDate(
       this.state.contact[0].priority
     );
     newContactsList.unshift(this.state.contact[0]);
@@ -95,7 +94,14 @@ class mySingleContactPage extends Component {
     let PhoneNumberBlock;
     let BlockstackBlock;
     let TwitterBlock;
+    let ContactDateBlock;
+    let contactDate = null;
     if (contact[0]) {
+      if (ifAttribute(contact[0].contactDate)) {
+        contactDate = moment(contact[0].contactDate, 'MM/DD/YYYY').fromNow(
+          'days'
+        );
+      }
       if (ifAttribute(contact[0].country)) {
         UserCountryBlock = (
           <div className="mt2">
@@ -124,6 +130,13 @@ class mySingleContactPage extends Component {
           </div>
         );
       } else BirthDateBlock = null;
+      if (ifAttribute(contact[0].contactDate)) {
+        ContactDateBlock = (
+          <div className="mt2">
+            <span className="b">Next Check in is in {contactDate}</span>
+          </div>
+        );
+      } else ContactDateBlock = null;
       if (ifAttribute(contact[0].phoneNumber)) {
         PhoneNumberBlock = (
           <div className="mt2">
@@ -186,6 +199,7 @@ class mySingleContactPage extends Component {
                 </div>
                 <div className="center w-80 w-40-ns pt6-ns">
                   <div className="tl">
+                    {ContactDateBlock}
                     {PhoneNumberBlock}
                     {EmailBlock}
                     {BirthDateBlock}

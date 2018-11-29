@@ -73,7 +73,7 @@ export default class Profile extends Component {
     if (ContactToday.length == 0 || ContactToday == null) {
       NoContactTodayBlock = (
         <div className="w-100">
-          <img src={NoOneLeft} className="center h4 db" />
+          <img src={NoOneLeft} className="center h4 db" alt="" />
           <p className="center center tc b f4">No pending checkins for today</p>
         </div>
       );
