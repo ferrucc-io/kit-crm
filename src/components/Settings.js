@@ -90,7 +90,14 @@ export default class Settings extends Component {
       .join('\n');
     const csv = `${columns}\n${rows}`;
     const url = await putFile('contacts.csv', csv, { encrypt: false });
-    window.open(url, '_target');
+    console.log(url);
+    window.open(url);
+  }
+
+  async deleteExportContacts() {
+    const blank = '';
+    const url = await putFile('contacts.csv', blank, { encrypt: false });
+    window.open(url);
   }
 
   render() {
@@ -128,6 +135,12 @@ export default class Settings extends Component {
           onClick={async () => await this.exportContacts()}
         >
           Export as CSV
+        </a>
+        <a
+          className="f6 link dim ph2 pv1 mb2 dib white bg-black b--black pointer ml2"
+          onClick={async () => await this.deleteExportContacts()}
+        >
+          Delete Export
         </a>
         <h3>Delete Contacts</h3>
         <a
