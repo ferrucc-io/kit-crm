@@ -227,8 +227,13 @@ class EditContactPage extends Component {
           </fieldset>
           <fieldset>
             <label>
-              Sex
-              <select onChange={this.handleChange} id="sex" name="sex">
+              Gender
+              <select
+                onChange={this.handleChange}
+                id="sex"
+                name="sex"
+                value={this.state.sex}
+              >
                 <option value="" defaultChecked>
                   Select Sex..
                 </option>
