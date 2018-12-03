@@ -179,10 +179,10 @@ export default class AddContact extends Component {
             </fieldset>
             <fieldset>
               <label>
-                Sex
+                Gender
                 <select onChange={this.handleChange} id="sex" name="sex">
                   <option value="" defaultChecked>
-                    Select Sex..
+                    Select Gender..
                   </option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
