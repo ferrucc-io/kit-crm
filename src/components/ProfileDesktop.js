@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function ProfileDesktop(props) {
   return (
-    <div className="w-100 w-25-ns fl pa2 dn dib-m dib-l" id="section-2">
+    <div className="w-100 w-25-ns fl pa2 dn dib-m dib-l pb5-l" id="section-2">
       <div>
         <img
           src={props.profileImage}

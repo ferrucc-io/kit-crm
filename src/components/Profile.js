@@ -95,6 +95,9 @@ export default class Profile extends Component {
             name={person.name() ? person.name() : 'Nameless Person'}
             username={username}
           />
+          <div className="w-100 w-75-ns fl tc bg-lightest-blue pa3 br1">
+            Contact <span className="b">3</span> more people today
+          </div>
           <div className="w-100 w-75-ns fl ph4 tl">
             <h1>Contact Today</h1>
             {NoContactTodayBlock}
