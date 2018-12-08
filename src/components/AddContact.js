@@ -7,7 +7,8 @@ import {
   Person,
   loadUserData,
 } from 'blockstack';
-import { Redirect } from 'react-router';
+import moment from 'moment';
+import { Redirect } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.min.css';
 import avatarFallbackImage from '../assets/avatar-placeholder.png';
 import Nav from './Nav';
@@ -55,6 +56,17 @@ export default class AddContact extends Component {
         contacts,
       });
     });
+    getFile('today.json', options).then(file => {
+      let today = JSON.parse(file || '[]');
+      if (today[0].date !== moment().format('L')) {
+        today = [{ date: moment().format('L'), contactsLeft: 3 }];
+        const otherOption = { encrypt: true };
+        putFile('today.json', JSON.stringify(today), otherOption).then();
+      }
+      this.setState({
+        today,
+      });
+    });
   }
 
   handleNewContactSubmit(event) {
@@ -62,6 +74,14 @@ export default class AddContact extends Component {
     this.saveNewContact(() => {
       this.setState({ saved: true });
     });
+    const today = [
+      {
+        date: this.state.today[0].date,
+        contactsLeft: this.state.today[0].contactsLeft - 1,
+      },
+    ];
+    const options = { encrypt: true };
+    putFile('today.json', JSON.stringify(today), options).then();
   }
 
   saveNewContact(cb) {

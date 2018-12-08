@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { isSignInPending, loadUserData, Person, getFile } from 'blockstack';
+import {
+  isSignInPending,
+  loadUserData,
+  Person,
+  getFile,
+  putFile,
+} from 'blockstack';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Nav from './Nav';
@@ -22,6 +28,7 @@ export default class Profile extends Component {
     },
     username: '',
     contacts: [],
+    today: [{ contactsLeft: 0, date: '' }],
   };
 
   componentWillMount() {
@@ -40,6 +47,22 @@ export default class Profile extends Component {
         contacts,
       });
     });
+    getFile('today.json', options).then(file => {
+      let today = JSON.parse(file || '[]');
+      if (today.length === 0) {
+        today = [{ date: moment().format('L'), contactsLeft: 3 }];
+        const otherOption = { encrypt: true };
+        putFile('today.json', JSON.stringify(today), otherOption).then();
+      }
+      if (today[0].date !== moment().format('L')) {
+        const otherOption = { encrypt: true };
+        today = [{ date: moment().format('L'), contactsLeft: 3 }];
+        putFile('today.json', JSON.stringify(today), otherOption).then();
+      }
+      this.setState({
+        today,
+      });
+    });
   }
 
   render() {
@@ -47,9 +70,19 @@ export default class Profile extends Component {
     const { person } = this.state;
     const { username } = this.state;
     const { contacts } = this.state;
+    const { today } = this.state;
+    let AddMoreContactsBlock = null;
     let ContactBlock = null;
     const ContactToday = [];
     let NoContactTodayBlock = null;
+    if (today[0].contactsLeft !== 0) {
+      AddMoreContactsBlock = (
+        <div className="w-100 w-75-ns fl tc bg-lightest-blue pa3 br1">
+          Contact <span className="b">{this.state.today[0].contactsLeft}</span>{' '}
+          more people today
+        </div>
+      );
+    }
     if (ifAttribute(contacts[0])) {
       ContactBlock = (
         <div className="w-100 w-75-ns fl ph4 tl">
@@ -95,9 +128,7 @@ export default class Profile extends Component {
             name={person.name() ? person.name() : 'Nameless Person'}
             username={username}
           />
-          <div className="w-100 w-75-ns fl tc bg-lightest-blue pa3 br1">
-            Contact <span className="b">3</span> more people today
-          </div>
+          {AddMoreContactsBlock}
           <div className="w-100 w-75-ns fl ph4 tl">
             <h1>Contact Today</h1>
             {NoContactTodayBlock}
