@@ -78,8 +78,8 @@ export default class Profile extends Component {
     if (today[0].contactsLeft !== 0) {
       AddMoreContactsBlock = (
         <div className="w-100 w-75-ns fl tc bg-lightest-blue pa3 br1">
-          Contact <span className="b">{this.state.today[0].contactsLeft}</span>{' '}
-          more people today
+          Add <span className="b">{this.state.today[0].contactsLeft}</span> more
+          people today to your contacts
         </div>
       );
     }
