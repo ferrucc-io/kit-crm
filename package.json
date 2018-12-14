@@ -39,7 +39,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "blockstack": "^18.1.0",
-    "moment": "^2.22.2",
+    "moment": "^2.23.0",
     "react": "^16.6.3",
     "react-country-region-selector": "^1.4.1",
     "react-dom": "^16.6.1",
